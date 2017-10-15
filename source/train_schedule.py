@@ -1,8 +1,9 @@
-from sqlwrap import DatabaseWrap
-from train import Train
-import schedule_maker
 import sys
-import time
+
+from source.train import Train
+
+import schedule_maker
+from source.sqlwrap import DatabaseWrap
 
 """
 Module consist implamentation class Schedule

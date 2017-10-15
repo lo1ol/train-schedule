@@ -1,5 +1,6 @@
-from train_schedule import Schedule
 from time import clock
+
+from source.train_schedule import Schedule
 
 
 def sort_db():

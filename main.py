@@ -1,7 +1,9 @@
-from train_schedule import Schedule
-from schedule_maker import make_database
+import optparse
+import sys
 from time import clock
-import optparse, sys
+
+from schedule_maker import make_database
+from source.train_schedule import Schedule
 
 
 def main(log='log.txt', trace=False):
