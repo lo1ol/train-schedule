@@ -2,13 +2,12 @@ class Train:
     """
     Consist values necessary for identification one train
     instance of Train more then other if depart time is later
-    and if depart time is equal, train with more travel time is more, if this field is equal Passenger more than Express,
-    if equal more train with bigger number
-    also have method form for getting tuple, identified train (necessary for sql) 
+    and if depart time is equal, train with more travel time is more
+    Also have method form for getting tuple, identified train (necessary for sqlite) 
     """
     def __init__(self, number, type, d_time, t_time):
         """
-        Make instanse of Train
+        Make instance of Train
         :param number: train number
         :param type: Express or Passenger
         :param d_time: department time
@@ -48,6 +47,6 @@ class Train:
 
     def form(self):
         """
-        :return: tuple (train_number, type, d_time, t_time)
+        :return: dictionary with keys train_number, type, d_time, t_time
         """
         return {'train_number': self.number, 'type': self.type, 'd_time': self.d_time, 't_time': self.t_time}

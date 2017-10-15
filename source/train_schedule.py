@@ -44,18 +44,24 @@ class Schedule:
         Sever connection with database and load all records from db to sqlite database
         :param name: name of database
         :return:  None
+        :raise raise RunrimeError if attribute db doesn't exist
         """
+        try:
+            self.db
+        except NameError:
+            raise RuntimeError('load_database must be called firstly')
+
         schedule_maker.make_database(name, self.db)
         self.database.close()
         self.database = DatabaseWrap(name)
 
     def insert_sort(self, autounload_into=None):
         """
-        Implamentation of insert sort
+        Implementation of insert sort
         sort attribute db via insert sor
         :param autounload_into: if consist path to file name, automatically load db in database
         :return None
-        :raise raise RunrimeError if attribute sb doesn't exist
+        :raise raise RunrimeError if attribute db doesn't exist
         """
         try:
             self.db

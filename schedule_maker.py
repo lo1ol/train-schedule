@@ -73,5 +73,9 @@ def make_database(name, db=None):
 
 
 if __name__ == '__main__':
-    # For testing
-    make_database(10**4)
+    name = input('Type name of database: ')
+    number = input("Type number of random records: ")
+    try:
+        make_database(name, int(number))
+    except ValueError:
+        print("Not an integer number!")
