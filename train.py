@@ -34,14 +34,6 @@ class Train:
             return True
         elif self.d_time == other.d_time and self.t_time > other.t_time:
             return True
-        elif (self.d_time == other.d_time and self.t_time == other.t_time
-              and (self.type == 'Passenger' and other.type == "Express")):
-            return True
-        elif (self.d_time == other.d_time and self.t_time == other.t_time
-              and (self.type == 'Express' and other.type == "Express"
-                   or self.type == 'Passenger' and other.type == "Passenger")
-              and self.number > other.number):
-            return True
         else:
             return False
 
