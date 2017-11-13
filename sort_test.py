@@ -6,7 +6,7 @@ from schedule_maker import make_database
 from source.train_schedule import Schedule
 
 
-def main(log='log.txt', trace=False):
+def sort_test(log='log_sort.txt', trace=False):
     """
     Make measure of two algorithms of sort and make log file according this measure
     Before making measure ask user about confidence in action
@@ -57,6 +57,6 @@ def main(log='log.txt', trace=False):
 if __name__ == "__main__":
     parser = optparse.OptionParser()
     parser.add_option('-t', '--trace', action='store_true', help='Trace the measure in standard output, default is False',default =False)
-    parser.add_option('-l', '--log', type='string', help='Logging measure in to FIlE, default in log.txt', default='log.txt')
+    parser.add_option('-l', '--log', type='string', help='Logging measure in to FIlE, default in log_sort.txt', default='log.txt')
     (options, args) = parser.parse_args(sys.argv)
-    main(**options.__dict__)
+    sort_test(**options.__dict__)

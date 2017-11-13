@@ -4,6 +4,8 @@ from source.train import Train
 
 import schedule_maker
 from source.sqlwrap import DatabaseWrap
+from re import fullmatch
+from collections import defaultdict
 
 """
 Module consist implamentation class Schedule
@@ -22,7 +24,7 @@ class Schedule:
     Method unload_database for sever connection with database and load all records in db to sqlite database
     Method insert_sort for insert sorting, 
     Method quick_sort for quick sorting,
-    Method-generator get_schedule for getting format string of records
+    Method print_schedule for printing formatted schedule
     """
     def __init__(self, database_name):
         """
@@ -39,7 +41,7 @@ class Schedule:
         db = self.database
         self.db = [Train(*db[i]) for i in range(db.get_size())]
 
-    def unload_database(self, name):
+    def unload_database(self, name = None):
         """
         Sever connection with database and load all records from db to sqlite database
         :param name: name of database
@@ -50,7 +52,9 @@ class Schedule:
             self.db
         except NameError:
             raise RuntimeError('load_database must be called firstly')
-
+        if not name:
+            self.database.close()
+            return None
         schedule_maker.make_database(name, self.db)
         self.database.close()
         self.database = DatabaseWrap(name)
@@ -123,7 +127,7 @@ class Schedule:
         if autounload_into:
             self.unload_database()
 
-    def get_schedule(self):
+    def print_schedule(self):
         """
         Method-generator for getting format string of records
         :return: format string of records
@@ -135,4 +139,97 @@ class Schedule:
             raise RuntimeError('load_database must be called firstly')
 
         for i in self.db:
-            yield '{type:<10} train № {train_number:04} departs on {d_time} and will be {t_time[0]}{t_time[1]} hours {t_time[3]}{t_time[4]} minutes in travel'.format(**i.form())
+            print(self._format_record(i))
+
+    def _format_record(record):
+        return '{type:<10} train № {train_number:04} departs on {d_time} and will be {t_time[0]}{t_time[1]} hours {t_time[3]}{t_time[4]} minutes in travel'.format(**record.form())
+
+    def linear_search(self, time, show = False):
+        try:
+            self.db
+        except NameError:
+            raise RuntimeError('load_database must be called firstly')
+
+        suitable = []
+        if not fullmatch('[0-9]{2}:[0-9]{2}',time):
+            raise RuntimeError('Incorrect Time Format!')
+
+        for train in self.db:
+            if train.d_time == time:
+                suitable.append(Schedule._format_record(train))
+
+        if show and not suitable:
+            print('Not found')
+        elif show:
+            for train in suitable:
+                print(train)
+        return suitable
+
+    def binary_search(self, time, show = False):
+        try:
+            self.db
+        except NameError:
+            raise RuntimeError('load_database must be called firstly')
+
+        suitable = []
+        if not fullmatch('[0-9]{2}:[0-9]{2}',time):
+            raise RuntimeError('Incorrect Time Format!')
+
+        first = 0
+        last = len(self.db)-1
+        while first <= last:
+            mid = (first+last) >> 1
+            if self.db[mid].d_time == time:
+                break
+            if self.db[mid].d_time < time:
+                last = mid-1
+            else:
+                first = mid+1
+        else:
+            if show:
+                print('Not found')
+            return suitable
+
+        first = mid
+        while first >= 0 and self.db[first].d_time == time:
+            first -= 1
+        first += 1
+
+        while first < len(self.db) and self.db[first].d_time == time:
+            suitable.append(self.db[first])
+            first += 1
+
+        suitable = (map(Schedule._format_record, suitable))
+        if show:
+            for train in suitable:
+                print(train)
+
+        return suitable
+
+    def convert_to_dict(self):
+        try:
+            self.db
+        except NameError:
+            raise RuntimeError('load_database must be called firstly')
+
+        self.db_dict = defaultdict(list)
+        for train in self.db:
+            self.db_dict[train.d_time].append(train)
+
+    def map_search(self, time, show = False):
+        try:
+            self.db_dict
+        except NameError:
+            raise RuntimeError('convert_to_dict must be called firstly')
+
+        if not fullmatch('[0-9]{2}:[0-9]{2}', time):
+            raise RuntimeError('Incorrect Time Format!')
+
+        result = self.db_dict[time]
+        suitable = list(map(Schedule._format_record, result))
+        if show and suitable:
+            for train in suitable:
+                print(train)
+        elif show and not suitable:
+            print('Not found')
+        return suitable
