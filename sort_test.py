@@ -49,14 +49,12 @@ def sort_test(log='log_sort.txt', trace=False):
             if trace:
                 print('-' * 60)
             logfile.flush()
-            i = int(i*3.74)
-
         logfile.close()
         return 0
 
 if __name__ == "__main__":
     parser = optparse.OptionParser()
     parser.add_option('-t', '--trace', action='store_true', help='Trace the measure in standard output, default is False',default =False)
-    parser.add_option('-l', '--log', type='string', help='Logging measure in to FIlE, default in log_sort.txt', default='log.txt')
+    parser.add_option('-l', '--log', type='string', help='Logging measure in to FIlE, default in log_sort.txt', default='log_sort.txt')
     (options, args) = parser.parse_args(sys.argv)
     sort_test(**options.__dict__)

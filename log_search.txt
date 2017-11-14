@@ -1,52 +1,52 @@
-Linear search on 5       records = 1.957427061099216e-05  sec
-Binary search on 5       records = 3.885529372219416e-06  sec
-Map search on 5       records = 4.28874468443087e-06   sec
+Linear search on 5       records = 3.445675805160965e-06  sec
+Binary search on 5       records = 2.2433548859133083e-06 sec
+Map    search on 5       records = 2.192036310091757e-06  sec
 --------------------------------------------------
-Linear search on 10      records = 3.2257224976915296e-06 sec
-Binary search on 10      records = 4.105464997061987e-06  sec
-Map search on 10      records = 3.812217497271928e-06  sec
+Linear search on 10      records = 2.1040616086834145e-06 sec
+Binary search on 10      records = 2.587922466429403e-06  sec
+Map    search on 10      records = 2.1627114096223243e-06 sec
 --------------------------------------------------
-Linear search on 50      records = 8.760769056230609e-06  sec
-Binary search on 50      records = 5.351766871170005e-06  sec
-Map search on 50      records = 4.508680309273441e-06  sec
+Linear search on 50      records = 4.343750882038105e-06  sec
+Binary search on 50      records = 4.204457604807975e-06  sec
+Map    search on 50      records = 2.3020046868522765e-06 sec
 --------------------------------------------------
-Linear search on 100     records = 1.0153694680233895e-05 sec
-Binary search on 100     records = 5.8649499958029e-06    sec
-Map search on 100     records = 3.922185309692717e-06  sec
+Linear search on 100     records = 7.180935002457471e-06  sec
+Binary search on 100     records = 4.0761611652542425e-06 sec
+Map    search on 100     records = 2.5439351157253295e-06 sec
 --------------------------------------------------
-Linear search on 500     records = 4.347394184388981e-05  sec
-Binary search on 500     records = 8.50417749391416e-06   sec
-Map search on 500     records = 6.378133120435448e-06  sec
+Linear search on 500     records = 3.101841347156666e-05  sec
+Binary search on 500     records = 7.444859106682314e-06  sec
+Map    search on 500     records = 4.061498715019763e-06  sec
 --------------------------------------------------
-Linear search on 1000    records = 8.229257962860948e-05  sec
-Binary search on 1000    records = 1.0080382805283117e-05 sec
-Map search on 1000    records = 9.127328430971749e-06  sec
+Linear search on 1000    records = 5.672535434560033e-05  sec
+Binary search on 1000    records = 9.87149462053083e-06   sec
+Map    search on 1000    records = 4.952242566778897e-06  sec
 --------------------------------------------------
-Linear search on 5000    records = 0.0005753882505257323  sec
-Binary search on 5000    records = 2.2836649046176216e-05 sec
-Map search on 5000    records = 3.236719278936207e-05  sec
+Linear search on 5000    records = 0.0002720874233932813  sec
+Binary search on 5000    records = 2.2055990765590393e-05 sec
+Map    search on 5000    records = 1.4347207554681885e-05 sec
 --------------------------------------------------
-Linear search on 10000   records = 0.001503663211111439   sec
-Binary search on 10000   records = 3.83054546601036e-05   sec
-Map search on 10000   records = 6.429451432892197e-05  sec
+Linear search on 10000   records = 0.000591659191871734   sec
+Binary search on 10000   records = 3.9097423550888964e-05 sec
+Map    search on 10000   records = 2.534404523073519e-05  sec
 --------------------------------------------------
-Linear search on 50000   records = 0.004341089363143702   sec
-Binary search on 50000   records = 7.59511024456927e-05   sec
-Map search on 50000   records = 0.00017730476956057117 sec
+Linear search on 50000   records = 0.0030838908424566467  sec
+Binary search on 50000   records = 0.00016380889402233477 sec
+Map    search on 50000   records = 0.00011046323445595974 sec
 --------------------------------------------------
-Linear search on 100000  records = 0.009024911741666664   sec
-Binary search on 100000  records = 9.845784805460057e-05  sec
-Map search on 100000  records = 0.0003053806150939309  sec
+Linear search on 100000  records = 0.006388202299292143   sec
+Binary search on 100000  records = 0.00030769884940086813 sec
+Map    search on 100000  records = 0.00022229740800874253 sec
 --------------------------------------------------
-Linear search on 500000  records = 0.0436259906725283     sec
-Binary search on 500000  records = 0.00030538061509375323 sec
-Map search on 500000  records = 0.0015287358723419687  sec
+Linear search on 500000  records = 0.03130824245974409    sec
+Binary search on 500000  records = 0.0013255331541825654  sec
+Map    search on 500000  records = 0.0010842735324081332  sec
 --------------------------------------------------
-Linear search on 1000000 records = 0.08903111392628915    sec
-Binary search on 1000000 records = 0.0005250963043067714  sec
-Map search on 1000000 records = 0.0029869823769232084  sec
+Linear search on 1000000 records = 0.07268690500235195    sec
+Binary search on 1000000 records = 0.00283359915133758    sec
+Map    search on 1000000 records = 0.0024039783626226096  sec
 --------------------------------------------------
-Linear search on 5000000 records = 0.4629401874071277     sec
-Binary search on 5000000 records = 0.0023547407673618183  sec
-Map search on 5000000 records = 0.01438041751844139    sec
+Linear search on 5000000 records = 0.3733873559093462     sec
+Binary search on 5000000 records = 0.014381202445554776   sec
+Map    search on 5000000 records = 0.012482704723540792   sec
 --------------------------------------------------
