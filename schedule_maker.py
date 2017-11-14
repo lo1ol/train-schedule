@@ -35,7 +35,7 @@ def make_database(name, db=None):
     id INTEGER PRIMARY KEY,
     train_number INTEGER,
     type_of_train VARCHAR(9),
-    departure_time TIME,
+    departure_time DATE,
     travel_time TIME
     )
     """
@@ -56,8 +56,10 @@ def make_database(name, db=None):
     # Create random records and set in database
     for i in range(db):
         type = random.choice(['Express', 'Passenger'])
-        n = random.randint(0, 1439)
-        d_time = "%02d:%02d" % (n//60, n%60)
+        time = random.randint(0, 1439)
+        month = random.randint(1, 12)
+        day = random.randint(1,30)
+        d_time = "%02d-%02d %02d:%02d" % (month, day, time // 60, time % 60)
         if type == 'Express':
             n = random.randint(360, 540)
             t_time = "%02d:%02d" % (n//60, n%60)

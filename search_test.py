@@ -5,7 +5,7 @@ from random import randint
 from source.train_schedule import Schedule
 
 
-def search_test(log='log_search.txt', trace=False):
+def search(log='log_search.txt', trace=False):
     """
     Make measure of two algorithms of search and make log file according this measure
     Measure timing of computing 5, 10, 50, 100 and so on to 10**5 of sorted records
@@ -23,8 +23,10 @@ def search_test(log='log_search.txt', trace=False):
         linear_sum = binary_sum = map_sum = 0
         schedule.convert_to_dict()
         for _ in range(100):
-            n = randint(0, 1439)
-            time = "%02d:%02d" % (n // 60, n % 60)
+            time = randint(0, 1439)
+            month = randint(1,12)
+            day  = randint(1,30)
+            time = "%02d-%02d %02d:%02d" % (month, day, time // 60, time % 60)
 
             start = clock()
             schedule.linear_search(time)
@@ -62,4 +64,4 @@ if __name__ == "__main__":
     parser.add_option('-l', '--log', type='string', help='Logging measure in to FIlE, default in log_search.txt',
                       default='log_search.txt')
     (options, args) = parser.parse_args(sys.argv)
-    search_test(**options.__dict__)
+    search(**options.__dict__)

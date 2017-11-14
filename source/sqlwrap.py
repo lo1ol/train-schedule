@@ -41,7 +41,7 @@ class DatabaseWrap:
                         VALUES ({0}, {1}, "{2}", "{3}","{4}") """
         self.cursor.execute(cmd_replace.format(key+1, *value))
 
-    def get_size(self):
+    def __len__(self):
         """
         :return: count of records in database
         """

@@ -44,7 +44,7 @@ class Schedule:
         """
         self.database.open()
         db = self.database
-        self.db = [Train(*db[i]) for i in range(db.get_size())]
+        self.db = [Train(*db[i]) for i in range(len(db))]
 
     def unload_database(self, name=None):
         """
@@ -154,6 +154,10 @@ class Schedule:
         """
         return '{type:<10} train № {train_number:04} departs on {d_time} and will be {t_time[0]}{t_time[1]} hours {t_time[3]}{t_time[4]} minutes in travel'.format(**record.form())
 
+    def _verify_time_format(time):
+        if not fullmatch('\d{2}-\d{2} \d{2}:\d{2}', time):
+            raise RuntimeError('Incorrect Time Format!')
+
     def linear_search(self, time, show=False):
         """
         Method for linear search
@@ -169,8 +173,7 @@ class Schedule:
 
         suitable = []
         # raise error if incorrect time format
-        if not fullmatch('[0-9]{2}:[0-9]{2}',time):
-            raise RuntimeError('Incorrect Time Format!')
+        Schedule._verify_time_format(time)
 
         for train in self.db:
             if train.d_time == time:
@@ -183,7 +186,7 @@ class Schedule:
                 print(train)
         return suitable
 
-    def binary_search(self, time, show = False):
+    def binary_search(self, time, show=False):
         """
         Method for binary search
         :param time: for search by time in field time
@@ -196,8 +199,7 @@ class Schedule:
             raise RuntimeError('load_database must be called firstly')
 
         suitable = []
-        if not fullmatch('[0-9]{2}:[0-9]{2}', time):
-            raise RuntimeError('Incorrect Time Format!')
+        Schedule._verify_time_format(time)
 
         first = 0
         last = len(self.db)-1
@@ -257,8 +259,7 @@ class Schedule:
         except NameError:
             raise RuntimeError('convert_to_dict must be called firstly')
 
-        if not fullmatch('[0-9]{2}:[0-9]{2}', time):
-            raise RuntimeError('Incorrect Time Format!')
+        Schedule._verify_time_format(time)
 
         result = self.db_dict[time]
         suitable = list(map(Schedule._format_record, result))

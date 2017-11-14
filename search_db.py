@@ -19,7 +19,7 @@ def search_db():
     schedule.load_database()
     while True:
         type = input('Type of search(linear/binary(work only on sorted database)/map): ')
-        time = input('Type searching time (format HH:MM): ')
+        time = input('Type searching time (format MM-DD HH:MM): ')
         if type == 'linear':
             start = clock()
             schedule.linear_search(time, show=show)
