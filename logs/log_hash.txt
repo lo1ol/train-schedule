@@ -1,0 +1,52 @@
+Simple  search on 5       records = 1.3196132653390392e-05 sec
+RS      search on 5       records = 1.1073754651636736e-05 sec
+Default search on 5       records = 3.141412689987656e-06  sec
+--------------------------------------------------
+Simple  search on 10      records = 1.1103079390866484e-05 sec
+RS      search on 10      records = 1.1022436357984662e-05 sec
+Default search on 10      records = 2.8921524065347437e-06 sec
+--------------------------------------------------
+Simple  search on 50      records = 1.115806327692235e-05  sec
+RS      search on 50      records = 1.068153626443873e-05  sec
+Default search on 50      records = 2.8041781888454505e-06 sec
+--------------------------------------------------
+Simple  search on 100     records = 1.0905137401065745e-05 sec
+RS      search on 100     records = 1.072552337328326e-05  sec
+Default search on 100     records = 9.167646601702662e-06  sec
+--------------------------------------------------
+Simple  search on 500     records = 1.109574820605974e-05  sec
+RS      search on 500     records = 1.058256526953863e-05  sec
+Default search on 500     records = 2.675882454715034e-06  sec
+--------------------------------------------------
+Simple  search on 1000    records = 1.1183722423748487e-05 sec
+RS      search on 1000    records = 1.0879478254239017e-05 sec
+Default search on 1000    records = 3.236718092484159e-06  sec
+--------------------------------------------------
+Simple  search on 5000    records = 1.1539284886904478e-05 sec
+RS      search on 5000    records = 1.1062757874434893e-05 sec
+Default search on 5000    records = 2.9764610318172568e-06 sec
+--------------------------------------------------
+Simple  search on 10000   records = 1.1531953702108577e-05 sec
+RS      search on 10000   records = 1.1128738537686811e-05 sec
+Default search on 10000   records = 3.2330525000690002e-06 sec
+--------------------------------------------------
+Simple  search on 50000   records = 1.240803028657922e-05  sec
+RS      search on 50000   records = 1.1773882800696355e-05 sec
+Default search on 50000   records = 3.167071836793767e-06  sec
+--------------------------------------------------
+Simple  search on 100000  records = 1.3038512180081341e-05 sec
+RS      search on 100000  records = 1.282224222814321e-05  sec
+Default search on 100000  records = 3.819547284678038e-06  sec
+--------------------------------------------------
+Simple  search on 500000  records = 1.7345583254240184e-05 sec
+RS      search on 500000  records = 1.6117609799408683e-05 sec
+Default search on 500000  records = 6.689706136029372e-06  sec
+--------------------------------------------------
+Simple  search on 1000000 records = 2.2096191010234634e-05 sec
+RS      search on 1000000 records = 2.1447381152199795e-05 sec
+Default search on 1000000 records = 1.0908802995004408e-05 sec
+--------------------------------------------------
+Simple  search on 5000000 records = 5.768176207425313e-05  sec
+RS      search on 5000000 records = 5.444870955557235e-05  sec
+Default search on 5000000 records = 4.048280250799508e-05  sec
+--------------------------------------------------

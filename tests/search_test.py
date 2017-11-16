@@ -1,11 +1,14 @@
 import optparse
 import sys
-from time import clock
+import os
+os.chdir('../')
 from random import randint
+from time import clock
+
 from source.train_schedule import Schedule
 
 
-def search(log='log_search.txt', trace=False):
+def search(log='logs/log_search.txt', trace=False):
     """
     Make measure of two algorithms of search and make log file according this measure
     Measure timing of computing 5, 10, 50, 100 and so on to 10**5 of sorted records
@@ -24,8 +27,8 @@ def search(log='log_search.txt', trace=False):
         schedule.convert_to_dict()
         for _ in range(100):
             time = randint(0, 1439)
-            month = randint(1,12)
-            day  = randint(1,30)
+            month = randint(1, 12)
+            day = randint(1, 30)
             time = "%02d-%02d %02d:%02d" % (month, day, time // 60, time % 60)
 
             start = clock()
@@ -61,7 +64,7 @@ if __name__ == "__main__":
     parser = optparse.OptionParser()
     parser.add_option('-t', '--trace', action='store_true',
                       help='Trace the measure in standard output, default is False', default=False)
-    parser.add_option('-l', '--log', type='string', help='Logging measure in to FIlE, default in log_search.txt',
-                      default='log_search.txt')
+    parser.add_option('-l', '--log', type='string', help='Logging measure in to FIlE, default in logs/log_search.txt',
+                      default='logs/log_search.txt')
     (options, args) = parser.parse_args(sys.argv)
     search(**options.__dict__)

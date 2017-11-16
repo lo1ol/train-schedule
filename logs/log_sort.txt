@@ -1,0 +1,39 @@
+Insert sort on 5       records = 2.3093232143433163e-05 sec
+Quick  sort on 5       records = 5.27845306135602e-05   sec
+--------------------------------------------------
+Insert sort on 10      records = 3.922183871979401e-05  sec
+Quick  sort on 10      records = 0.00010630217970786227 sec
+--------------------------------------------------
+Insert sort on 50      records = 0.00040834699377434447 sec
+Quick  sort on 50      records = 0.00036362676644896563 sec
+--------------------------------------------------
+Insert sort on 100     records = 0.0017305261737959876  sec
+Quick  sort on 100     records = 0.0006942632012644778  sec
+--------------------------------------------------
+Insert sort on 500     records = 0.0441084399531978     sec
+Quick  sort on 500     records = 0.004973842332607115   sec
+--------------------------------------------------
+Insert sort on 1000    records = 0.3585737473204519     sec
+Quick  sort on 1000    records = 0.011299921702946358   sec
+--------------------------------------------------
+Insert sort on 5000    records = 4.951220129087502      sec
+Quick  sort on 5000    records = 0.06077039022430508    sec
+--------------------------------------------------
+Insert sort on 10000   records = 18.186462087510886     sec
+Quick  sort on 10000   records = 0.14415418654639822    sec
+--------------------------------------------------
+Insert sort on 50000   records = 600.2779329137941      sec
+Quick  sort on 50000   records = 0.8654148424234336     sec
+--------------------------------------------------
+Insert sort on 100000  records = 2429.6766969493474     sec
+Quick  sort on 100000  records = 1.9365372321553878     sec
+--------------------------------------------------
+Insert sort on 500000  records = more then 3 hours      sec
+Quick  sort on 500000  records = 11.736419713262876     sec
+--------------------------------------------------
+Insert sort on 1000000 records = more then 3 hours      sec
+Quick  sort on 1000000 records = 24.57908002428121      sec
+--------------------------------------------------
+Insert sort on 5000000 records = more then 3 hours      sec
+Quick  sort on 5000000 records = 149.88658840382504     sec
+--------------------------------------------------

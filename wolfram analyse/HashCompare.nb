@@ -10,10 +10,10 @@
 NotebookFileLineBreakTest
 NotebookFileLineBreakTest
 NotebookDataPosition[       158,          7]
-NotebookDataLength[     94804,       1976]
-NotebookOptionsPosition[     93983,       1947]
-NotebookOutlinePosition[     94354,       1963]
-CellTagsIndexPosition[     94311,       1960]
+NotebookDataLength[     64968,       1403]
+NotebookOptionsPosition[     64238,       1376]
+NotebookOutlinePosition[     64610,       1392]
+CellTagsIndexPosition[     64567,       1389]
 WindowFrame->Normal*)
 
 (* Beginning of Notebook Content *)
@@ -26,19 +26,18 @@ Cell[BoxData[{
    RowBox[{"NotebookDirectory", "[", "]"}], "]"}], 
   ";"}], "\[IndentingNewLine]", 
  RowBox[{
-  RowBox[{"workingDirectory", " ", "=", " ", 
-   RowBox[{"CreateDirectory", "[", "\"\<shown results\>\"", "]"}]}], 
+  RowBox[{"workingDirectory", " ", "=", " ", "\"\<../shown results\>\""}], 
   ";"}], "\[IndentingNewLine]", 
  RowBox[{
   RowBox[{"SetDirectory", "[", "workingDirectory", "]"}], 
   ";"}], "\[IndentingNewLine]", 
  RowBox[{
   RowBox[{"file", "=", " ", 
-   RowBox[{"OpenRead", "[", "\"\<../log_search.txt\>\"", "]"}]}], 
+   RowBox[{"OpenRead", "[", "\"\<../logs/log_hash.txt\>\"", "]"}]}], 
   ";"}], "\[IndentingNewLine]", 
  RowBox[{
   RowBox[{"workingDirectory", " ", "=", " ", 
-   RowBox[{"CreateDirectory", "[", "\"\<search\>\"", "]"}]}], 
+   RowBox[{"CreateDirectory", "[", "\"\<hash\>\"", "]"}]}], 
   ";"}], "\[IndentingNewLine]", 
  RowBox[{
   RowBox[{"SetDirectory", "[", "workingDirectory", "]"}], 
@@ -50,25 +49,25 @@ Cell[BoxData[{
      RowBox[{"file", ",", "String"}], "]"}]}], ";"}], 
   "\[IndentingNewLine]"}], "\[IndentingNewLine]", 
  RowBox[{
-  RowBox[{"mapSearchResults", " ", "=", " ", 
+  RowBox[{"defaultSearchResults", " ", "=", " ", 
    RowBox[{"filelist", "[", 
     RowBox[{"[", 
      RowBox[{"3", ";;", ";;", "4"}], "]"}], "]"}]}], 
   ";"}], "\[IndentingNewLine]", 
  RowBox[{
-  RowBox[{"binarySearchResults", " ", "=", " ", 
+  RowBox[{"rsSearchResults", " ", "=", " ", 
    RowBox[{"filelist", "[", 
     RowBox[{"[", 
      RowBox[{"2", ";;", ";;", "4"}], "]"}], "]"}]}], 
   ";"}], "\[IndentingNewLine]", 
  RowBox[{
-  RowBox[{"linearSearchResults", " ", "=", " ", 
+  RowBox[{"simpleSearchResults", " ", "=", " ", 
    RowBox[{"filelist", "[", 
     RowBox[{"[", 
      RowBox[{"1", ";;", ";;", "4"}], "]"}], "]"}]}], 
   ";"}], "\[IndentingNewLine]", 
  RowBox[{
-  RowBox[{"linearSearchResults", "=", " ", 
+  RowBox[{"simpleSearchResults", "=", " ", 
    RowBox[{"Map", "[", 
     RowBox[{
      RowBox[{
@@ -81,9 +80,9 @@ Cell[BoxData[{
          RowBox[{
           RowBox[{"StringSplit", "[", "#", "]"}], "[", 
           RowBox[{"[", "7", "]"}], "]"}]}], "}"}], ")"}], "&"}], ",", 
-     "linearSearchResults"}], "]"}]}], ";"}], "\[IndentingNewLine]", 
+     "simpleSearchResults"}], "]"}]}], ";"}], "\[IndentingNewLine]", 
  RowBox[{
-  RowBox[{"binarySearchResults", "=", " ", 
+  RowBox[{"rsSearchResults", "=", " ", 
    RowBox[{"Map", "[", 
     RowBox[{
      RowBox[{
@@ -96,9 +95,9 @@ Cell[BoxData[{
          RowBox[{
           RowBox[{"StringSplit", "[", "#", "]"}], "[", 
           RowBox[{"[", "7", "]"}], "]"}]}], "}"}], ")"}], "&"}], ",", 
-     "binarySearchResults"}], "]"}]}], ";"}], "\[IndentingNewLine]", 
+     "rsSearchResults"}], "]"}]}], ";"}], "\[IndentingNewLine]", 
  RowBox[{
-  RowBox[{"mapSearchResults", "=", " ", 
+  RowBox[{"defaultSearchResults", "=", " ", 
    RowBox[{"Map", "[", 
     RowBox[{
      RowBox[{
@@ -111,9 +110,9 @@ Cell[BoxData[{
          RowBox[{
           RowBox[{"StringSplit", "[", "#", "]"}], "[", 
           RowBox[{"[", "7", "]"}], "]"}]}], "}"}], ")"}], "&"}], ",", 
-     "mapSearchResults"}], "]"}]}], ";"}], "\[IndentingNewLine]", 
+     "defaultSearchResults"}], "]"}]}], ";"}], "\[IndentingNewLine]", 
  RowBox[{
-  RowBox[{"linearSearchResults", "=", " ", 
+  RowBox[{"simpleSearchResults", "=", " ", 
    RowBox[{"Map", "[", 
     RowBox[{
      RowBox[{
@@ -131,10 +130,10 @@ Cell[BoxData[{
            RowBox[{"StringToStream", "[", 
             RowBox[{"#", "[", 
              RowBox[{"[", "2", "]"}], "]"}], "]"}], ",", "Number"}], "]"}]}], 
-        "}"}], ")"}], "&"}], ",", "linearSearchResults"}], "]"}]}], 
+        "}"}], ")"}], "&"}], ",", "simpleSearchResults"}], "]"}]}], 
   ";"}], "\[IndentingNewLine]", 
  RowBox[{
-  RowBox[{"binarySearchResults", "=", " ", 
+  RowBox[{"rsSearchResults", "=", " ", 
    RowBox[{"Map", "[", 
     RowBox[{
      RowBox[{
@@ -152,10 +151,10 @@ Cell[BoxData[{
            RowBox[{"StringToStream", "[", 
             RowBox[{"#", "[", 
              RowBox[{"[", "2", "]"}], "]"}], "]"}], ",", "Number"}], "]"}]}], 
-        "}"}], ")"}], "&"}], ",", "binarySearchResults"}], "]"}]}], 
+        "}"}], ")"}], "&"}], ",", "rsSearchResults"}], "]"}]}], 
   ";"}], "\[IndentingNewLine]", 
  RowBox[{
-  RowBox[{"mapSearchResults", "=", " ", 
+  RowBox[{"defaultSearchResults", "=", " ", 
    RowBox[{"Map", "[", 
     RowBox[{
      RowBox[{
@@ -173,85 +172,61 @@ Cell[BoxData[{
            RowBox[{"StringToStream", "[", 
             RowBox[{"#", "[", 
              RowBox[{"[", "2", "]"}], "]"}], "]"}], ",", "Number"}], "]"}]}], 
-        "}"}], ")"}], "&"}], ",", "mapSearchResults"}], "]"}]}], 
+        "}"}], ")"}], "&"}], ",", "defaultSearchResults"}], "]"}]}], 
   ";"}], "\[IndentingNewLine]", 
  RowBox[{"Plot1", " ", "=", " ", 
   RowBox[{"Show", "[", 
    RowBox[{
-    RowBox[{"ListLogPlot", "[", 
-     RowBox[{"linearSearchResults", ",", 
+    RowBox[{"ListPlot", "[", 
+     RowBox[{"simpleSearchResults", ",", 
       RowBox[{"Joined", "\[Rule]", "True"}], ",", 
       RowBox[{"PlotStyle", "\[Rule]", "Blue"}], ",", 
       RowBox[{"PlotLegends", "\[Rule]", 
-       RowBox[{"{", "\"\<Linear Search\>\"", "}"}]}], ",", 
+       RowBox[{"{", "\"\<Simple hash (search)\>\"", "}"}]}], ",", 
       RowBox[{
       "PlotLabel", "\[Rule]", 
-       "\"\<Compare binary Search, linear search and search using search by \
-key (Log scale)\>\""}], ",", " ", 
+       "\"\<Compare rs hash, simple hash and search using default hash\>\""}],
+       ",", " ", 
       RowBox[{"AxesLabel", "\[Rule]", 
        RowBox[{"{", 
         RowBox[{"\"\<n\>\"", ",", "\"\<t\>\""}], "}"}]}], ",", 
       RowBox[{"PlotTheme", "\[Rule]", "\"\<Detailed\>\""}], ",", 
       RowBox[{"ImageSize", "\[Rule]", 
        RowBox[{"Scaled", "[", "0.8", "]"}]}]}], "]"}], ",", 
-    RowBox[{"ListLogPlot", "[", 
-     RowBox[{"binarySearchResults", ",", 
+    RowBox[{"ListPlot", "[", 
+     RowBox[{"rsSearchResults", ",", 
       RowBox[{"Joined", "\[Rule]", "True"}], ",", 
       RowBox[{"PlotStyle", "\[Rule]", "Red"}], ",", 
       RowBox[{"PlotLegends", "\[Rule]", 
-       RowBox[{"{", "\"\<Binary Search\>\"", "}"}]}]}], "]"}], ",", 
+       RowBox[{"{", "\"\<RS hash (search)\>\"", "}"}]}]}], "]"}], ",", 
     "\[IndentingNewLine]", 
-    RowBox[{"ListLogPlot", "[", 
-     RowBox[{"mapSearchResults", ",", 
+    RowBox[{"ListPlot", "[", 
+     RowBox[{"defaultSearchResults", ",", 
       RowBox[{"Joined", "\[Rule]", "True"}], ",", 
       RowBox[{"PlotStyle", "\[Rule]", "Green"}], ",", 
       RowBox[{"PlotLegends", "\[Rule]", 
-       RowBox[{"{", "\"\<Search by Key\>\"", "}"}]}]}], "]"}]}], 
+       RowBox[{"{", "\"\<Default hash (search)\>\"", "}"}]}]}], "]"}]}], 
    "]"}]}], "\[IndentingNewLine]", 
  RowBox[{"Plot2", " ", "=", " ", 
-  RowBox[{"Show", "[", 
-   RowBox[{
-    RowBox[{"ListPlot", "[", 
-     RowBox[{"linearSearchResults", ",", 
-      RowBox[{"Joined", "\[Rule]", "True"}], ",", 
-      RowBox[{"PlotStyle", "\[Rule]", "Blue"}], ",", 
-      RowBox[{"PlotLegends", "\[Rule]", 
-       RowBox[{"{", "\"\<Linear Search\>\"", "}"}]}], ",", 
-      RowBox[{
-      "PlotLabel", "\[Rule]", 
-       "\"\<Compare binary Search, linear search and search using search by \
-key\>\""}], ",", " ", 
-      RowBox[{"AxesLabel", "\[Rule]", 
-       RowBox[{"{", 
-        RowBox[{"\"\<n\>\"", ",", "\"\<t\>\""}], "}"}]}], ",", 
-      RowBox[{"PlotTheme", "\[Rule]", "\"\<Detailed\>\""}], ",", 
-      RowBox[{"ImageSize", "\[Rule]", 
-       RowBox[{"Scaled", "[", "0.8", "]"}]}]}], "]"}], ",", 
-    RowBox[{"ListPlot", "[", 
-     RowBox[{"binarySearchResults", ",", 
-      RowBox[{"Joined", "\[Rule]", "True"}], ",", 
-      RowBox[{"PlotStyle", "\[Rule]", "Red"}], ",", 
-      RowBox[{"PlotLegends", "\[Rule]", 
-       RowBox[{"{", "\"\<Binary Search\>\"", "}"}]}]}], "]"}], ",", 
-    "\[IndentingNewLine]", 
-    RowBox[{"ListPlot", "[", 
-     RowBox[{"mapSearchResults", ",", 
-      RowBox[{"Joined", "\[Rule]", "True"}], ",", 
-      RowBox[{"PlotStyle", "\[Rule]", "Green"}], ",", 
-      RowBox[{"PlotLegends", "\[Rule]", 
-       RowBox[{"{", "\"\<Search by Key\>\"", "}"}]}]}], "]"}]}], 
-   "]"}]}], "\[IndentingNewLine]", 
- RowBox[{"Plot3", " ", "=", " ", 
   RowBox[{"ListPlot", "[", 
-   RowBox[{"linearSearchResults", ",", 
+   RowBox[{"simpleSearchResults", ",", 
     RowBox[{"Joined", "\[Rule]", "True"}], ",", 
     RowBox[{"PlotStyle", "\[Rule]", "Blue"}], ",", 
     RowBox[{"PlotLegends", "\[Rule]", 
-     RowBox[{"{", "\"\<Linear Search\>\"", "}"}]}], ",", 
-    RowBox[{
-    "PlotLabel", "\[Rule]", 
-     "\"\<Compare binary Search, linear search and search using search by key\
-\>\""}], ",", " ", 
+     RowBox[{"{", "\"\<Simple hash (search)\>\"", "}"}]}], ",", " ", 
+    RowBox[{"AxesLabel", "\[Rule]", 
+     RowBox[{"{", 
+      RowBox[{"\"\<n\>\"", ",", "\"\<t\>\""}], "}"}]}], ",", 
+    RowBox[{"PlotTheme", "\[Rule]", "\"\<Detailed\>\""}], ",", 
+    RowBox[{"ImageSize", "\[Rule]", 
+     RowBox[{"Scaled", "[", "0.8", "]"}]}]}], "]"}]}], "\[IndentingNewLine]", 
+ RowBox[{"Plot3", " ", "=", " ", 
+  RowBox[{"ListPlot", "[", 
+   RowBox[{"rsSearchResults", ",", 
+    RowBox[{"Joined", "\[Rule]", "True"}], ",", 
+    RowBox[{"PlotStyle", "\[Rule]", "Red"}], ",", 
+    RowBox[{"PlotLegends", "\[Rule]", 
+     RowBox[{"{", "\"\<RS hash (search)\>\"", "}"}]}], ",", " ", 
     RowBox[{"AxesLabel", "\[Rule]", 
      RowBox[{"{", 
       RowBox[{"\"\<n\>\"", ",", "\"\<t\>\""}], "}"}]}], ",", 
@@ -260,24 +235,11 @@ key\>\""}], ",", " ",
      RowBox[{"Scaled", "[", "0.8", "]"}]}]}], "]"}]}], "\[IndentingNewLine]", 
  RowBox[{"Plot4", " ", "=", " ", 
   RowBox[{"ListPlot", "[", 
-   RowBox[{"binarySearchResults", ",", 
+   RowBox[{"defaultSearchResults", ",", 
     RowBox[{"Joined", "\[Rule]", "True"}], ",", 
     RowBox[{"PlotStyle", "\[Rule]", "Red"}], ",", 
     RowBox[{"PlotLegends", "\[Rule]", 
-     RowBox[{"{", "\"\<Binary Search\>\"", "}"}]}], ",", " ", 
-    RowBox[{"AxesLabel", "\[Rule]", 
-     RowBox[{"{", 
-      RowBox[{"\"\<n\>\"", ",", "\"\<t\>\""}], "}"}]}], ",", 
-    RowBox[{"PlotTheme", "\[Rule]", "\"\<Detailed\>\""}], ",", 
-    RowBox[{"ImageSize", "\[Rule]", 
-     RowBox[{"Scaled", "[", "0.8", "]"}]}]}], "]"}]}], "\[IndentingNewLine]", 
- RowBox[{"Plot5", " ", "=", " ", 
-  RowBox[{"ListPlot", "[", 
-   RowBox[{"mapSearchResults", ",", 
-    RowBox[{"Joined", "\[Rule]", "True"}], ",", 
-    RowBox[{"PlotStyle", "\[Rule]", "Red"}], ",", 
-    RowBox[{"PlotLegends", "\[Rule]", 
-     RowBox[{"{", "\"\<Search by Key\>\"", "}"}]}], ",", 
+     RowBox[{"{", "\"\<Default hash (search)\>\"", "}"}]}], ",", 
     RowBox[{"AxesLabel", "\[Rule]", 
      RowBox[{"{", 
       RowBox[{"\"\<n\>\"", ",", "\"\<t\>\""}], "}"}]}], ",", 
@@ -338,7 +300,13 @@ key\>\""}], ",", " ",
    3.7196774892206364`*^9, 3.719677489780421*^9}, {3.7196775342803926`*^9, 
    3.71967758819226*^9}, {3.7196776265574*^9, 3.7196776824761906`*^9}, {
    3.719677737020877*^9, 3.719677896954363*^9}, {3.7196779473208847`*^9, 
-   3.719677947963855*^9}, 3.719677986948039*^9}],
+   3.719677947963855*^9}, 3.719677986948039*^9, {3.719829329484434*^9, 
+   3.7198293542902327`*^9}, {3.7198296929169664`*^9, 
+   3.7198296940928984`*^9}, {3.719829769958275*^9, 3.719829777423921*^9}, {
+   3.719829852517999*^9, 3.719829919654538*^9}, {3.7198299509496803`*^9, 
+   3.71982997091829*^9}, {3.719830021015905*^9, 3.7198300210454254`*^9}, {
+   3.7198300703206816`*^9, 3.719830188240073*^9}, {3.719830220678295*^9, 
+   3.7198302579742317`*^9}}],
 
 Cell[BoxData[
  RowBox[{
@@ -347,64 +315,13 @@ Cell[BoxData[
   RowBox[{
   ":", " "}], \
 "\<\"\[NoBreak]\\!\\(\\\"C:\\\\\\\\Users\\\\\\\\Petr\\\\\\\\Desktop\\\\\\\\\
-Projects\\\\\\\\Programming Techniques\\\\\\\\shown results\\\\\\\\\\\"\\)\
-\[NoBreak] already exists. \\!\\(\\*ButtonBox[\\\"\[RightSkeleton]\\\", \
-ButtonStyle->\\\"Link\\\", ButtonFrame->None, \
+Projects\\\\\\\\Programming Techniques\\\\\\\\shown results\\\\\\\\hash\\\\\\\
+\\\\\"\\)\[NoBreak] already exists. \\!\\(\\*ButtonBox[\\\"\[RightSkeleton]\\\
+\", ButtonStyle->\\\"Link\\\", ButtonFrame->None, \
 ButtonData:>\\\"paclet:ref/CreateDirectory\\\", ButtonNote -> \
 \\\"CreateDirectory::filex\\\"]\\)\"\>"}]], "Message", "MSG",
- CellChangeTimes->{
-  3.71671280911168*^9, 3.7167128758761096`*^9, {3.716712925028591*^9, 
-   3.716712928857549*^9}, {3.7167145563215847`*^9, 3.716714569312237*^9}, 
-   3.716714638027997*^9, 3.7167146943829775`*^9, 3.71671475818911*^9, 
-   3.71671487496727*^9, 3.716714906557728*^9, 3.7167152555111136`*^9, 
-   3.7195946021804795`*^9, 3.7195987477175884`*^9, {3.7195988789392424`*^9, 
-   3.7195989265098953`*^9}, 3.719599139620545*^9, 3.7195992073864465`*^9, 
-   3.7195998807942915`*^9, {3.719600031232263*^9, 3.7196000493475103`*^9}, {
-   3.7196000996462955`*^9, 3.7196001254858646`*^9}, 3.7196001846884556`*^9, {
-   3.7196003517696085`*^9, 3.7196003719018483`*^9}, 3.719600409361558*^9, 
-   3.7196004576283846`*^9, {3.719600491777182*^9, 3.719600517040056*^9}, 
-   3.719600600167799*^9, 3.7196006477648726`*^9, 3.719600702757693*^9, {
-   3.7196007456324415`*^9, 3.719600789012987*^9}, 3.7196008266979647`*^9, 
-   3.7196008703552923`*^9, 3.7196009488755336`*^9, 3.719601085741945*^9, 
-   3.7196427145645437`*^9, 3.7196509973827653`*^9, 3.7196765003350554`*^9, 
-   3.7196766444394674`*^9, {3.719676740515484*^9, 3.7196767701490765`*^9}, 
-   3.7196774321790285`*^9, 3.7196774903767037`*^9, {3.7196775355794415`*^9, 
-   3.7196775495428457`*^9}, 3.719677588858349*^9, {3.7196777606992116`*^9, 
-   3.719677789673248*^9}, {3.719677834816529*^9, 3.719677852124383*^9}, 
-   3.719677901429076*^9, 3.719677957206275*^9, 3.7196779984678144`*^9}],
-
-Cell[BoxData[
- RowBox[{
-  StyleBox[
-   RowBox[{"CreateDirectory", "::", "filex"}], "MessageName"], 
-  RowBox[{
-  ":", " "}], \
-"\<\"\[NoBreak]\\!\\(\\\"C:\\\\\\\\Users\\\\\\\\Petr\\\\\\\\Desktop\\\\\\\\\
-Projects\\\\\\\\Programming Techniques\\\\\\\\shown results\\\\\\\\search\\\\\
-\\\\\\\"\\)\[NoBreak] already exists. \\!\\(\\*ButtonBox[\\\"\[RightSkeleton]\
-\\\", ButtonStyle->\\\"Link\\\", ButtonFrame->None, \
-ButtonData:>\\\"paclet:ref/CreateDirectory\\\", ButtonNote -> \
-\\\"CreateDirectory::filex\\\"]\\)\"\>"}]], "Message", "MSG",
- CellChangeTimes->{
-  3.71671280911168*^9, 3.7167128758761096`*^9, {3.716712925028591*^9, 
-   3.716712928857549*^9}, {3.7167145563215847`*^9, 3.716714569312237*^9}, 
-   3.716714638027997*^9, 3.7167146943829775`*^9, 3.71671475818911*^9, 
-   3.71671487496727*^9, 3.716714906557728*^9, 3.7167152555111136`*^9, 
-   3.7195946021804795`*^9, 3.7195987477175884`*^9, {3.7195988789392424`*^9, 
-   3.7195989265098953`*^9}, 3.719599139620545*^9, 3.7195992073864465`*^9, 
-   3.7195998807942915`*^9, {3.719600031232263*^9, 3.7196000493475103`*^9}, {
-   3.7196000996462955`*^9, 3.7196001254858646`*^9}, 3.7196001846884556`*^9, {
-   3.7196003517696085`*^9, 3.7196003719018483`*^9}, 3.719600409361558*^9, 
-   3.7196004576283846`*^9, {3.719600491777182*^9, 3.719600517040056*^9}, 
-   3.719600600167799*^9, 3.7196006477648726`*^9, 3.719600702757693*^9, {
-   3.7196007456324415`*^9, 3.719600789012987*^9}, 3.7196008266979647`*^9, 
-   3.7196008703552923`*^9, 3.7196009488755336`*^9, 3.719601085741945*^9, 
-   3.7196427145645437`*^9, 3.7196509973827653`*^9, 3.7196765003350554`*^9, 
-   3.7196766444394674`*^9, {3.719676740515484*^9, 3.7196767701490765`*^9}, 
-   3.7196774321790285`*^9, 3.7196774903767037`*^9, {3.7196775355794415`*^9, 
-   3.7196775495428457`*^9}, 3.719677588858349*^9, {3.7196777606992116`*^9, 
-   3.719677789673248*^9}, {3.719677834816529*^9, 3.719677852124383*^9}, 
-   3.719677901429076*^9, 3.719677957206275*^9, 3.7196779985563865`*^9}],
+ CellChangeTimes->{3.719830337293163*^9, 3.7198306303638268`*^9, 
+  3.7198320328600054`*^9, 3.719842741715712*^9}],
 
 Cell[BoxData[
  TemplateBox[{GraphicsBox[{{{}, {{{}, {}, {
@@ -413,475 +330,48 @@ Cell[BoxData[
           PointSize[0.012833333333333334`], 
           AbsoluteThickness[1.6], 
           RGBColor[0, 0, 1]], 
-         LineBox[{{5., -12.211975909643106`}, {10., -12.713747268691025`}, {
-          50., -12.03718014248669}, {100., -11.549151097103133`}, {
-          500., -10.123632368186474`}, {1000., -9.452096667818866}, {
-          5000., -7.194339614458009}, {10000., -6.895176267674507}, {
-          50000., -5.37647180719162}, {100000., -4.766273229696906}, {
-          500000., -3.142769035976763}, {1.*^6, -2.4454953993290904`}, {
-          5.*^6, -0.895965968390578}}]}}}, {}}, {{}, {{{}, {}, {
+         LineBox[{{5., 0.000013196132653390392`}, {10., 
+          0.000011103079390866484`}, {50., 0.00001115806327692235}, {100., 
+          0.000010905137401065745`}, {500., 0.00001109574820605974}, {1000., 
+          0.000011183722423748487`}, {5000., 0.000011539284886904478`}, {
+          10000., 0.000011531953702108577`}, {50000., 
+          0.00001240803028657922}, {100000., 0.000013038512180081341`}, {
+          500000., 0.000017345583254240184`}, {1.*^6, 
+          0.000022096191010234634`}, {1.518541408906103*^6, 
+          0.000026709339049300735`}}]}}}, {}}, {{}, {{{}, {}, {
          Hue[0.67, 0.6, 0.6], 
          Directive[
           PointSize[0.012833333333333334`], 
           AbsoluteThickness[1.6], 
           RGBColor[1, 0, 0]], 
-         LineBox[{{5., -12.531628736971362`}, {10., -12.446056635512758`}, {
-          50., -12.217893086671204`}, {100., -12.127179372983008`}, {
-          500., -11.827878074079296`}, {1000., -11.646896775485738`}, {
-          5000., -10.334404159635069`}, {10000., -10.596802265622006`}, {
-          50000., -10.022813901690355`}, {100000., -10.044693688918933`}, {
-          500000., -9.624145338607843}, {1.*^6, -9.381890826755441}, {
-          5.*^6, -9.068179711081125}}]}}}, {}}, {{}, {{{}, {}, {
+         LineBox[{{5., 0.000011073754651636736`}, {10., 
+          0.000011022436357984662`}, {50., 0.00001068153626443873}, {100., 
+          0.00001072552337328326}, {500., 0.00001058256526953863}, {1000., 
+          0.000010879478254239017`}, {5000., 0.000011062757874434893`}, {
+          10000., 0.000011128738537686811`}, {50000., 
+          0.000011773882800696355`}, {100000., 0.00001282224222814321}, {
+          500000., 0.000016117609799408683`}, {1.*^6, 
+          0.000021447381152199795`}, {1.334333000500081*^6, 
+          0.00002420573943859682}}]}}}, {}}, {{}, {{{}, {}, {
          Hue[0.67, 0.6, 0.6], 
          Directive[
           PointSize[0.012833333333333334`], 
           AbsoluteThickness[1.6], 
           RGBColor[0, 1, 0]], 
-         LineBox[{{5., -12.638682733135518`}, {10., -12.747186916896299`}, {
-          50., -12.538760708108615`}, {100., -12.700437937322242`}, {
-          500., -12.607534497548276`}, {1000., -12.602072987522854`}, {
-          5000., -11.113855383955443`}, {10000., -11.711826543869071`}, {
-          50000., -11.387373605457512`}, {100000., -11.390936362274958`}, {
-          500000., -11.141534497934279`}, {1.*^6, -10.90507918399145}, {
-          5.*^6, -10.012296138194074`}}]}}}, {}}}, {
-    DisplayFunction -> Identity, GridLines -> {Automatic, 
-       Charting`ScaledTickValues[{Log, Exp}]}, DisplayFunction -> Identity, 
-     DisplayFunction -> Identity, DisplayFunction -> Identity, 
-     PlotRangePadding -> {{
-        Scaled[0.02], 
-        Scaled[0.02]}, {
-        Scaled[0.02], 
-        Scaled[0.05]}}, AxesOrigin -> {0, -13.636519247870213`}, 
-     PlotRange -> {{0, 1.249925*^6}, {-13.420066561396082`, 0}}, 
-     DisplayFunction -> Identity, AspectRatio -> 
-     NCache[GoldenRatio^(-1), 0.6180339887498948], Axes -> {False, False}, 
-     AxesLabel -> {
-       FormBox["\"n\"", TraditionalForm], 
-       FormBox["\"t\"", TraditionalForm]}, 
-     AxesOrigin -> {0, -13.636519247870213`}, 
-     CoordinatesToolOptions -> {"DisplayFunction" -> ({
-         Part[#, 1], 
-         Exp[
-          Part[#, 2]]}& ), "CopiedValueFunction" -> ({
-         Part[#, 1], 
-         Exp[
-          Part[#, 2]]}& )}, DisplayFunction :> Identity, 
-     Frame -> {{True, True}, {True, True}}, 
-     FrameLabel -> {{None, None}, {None, None}}, FrameStyle -> Automatic, 
-     FrameTicks -> {{
-        Charting`ScaledTicks[{Log, Exp}], 
-        Charting`ScaledFrameTicks[{Log, Exp}]}, {Automatic, Automatic}}, 
-     GridLines -> {Automatic, 
-       Charting`ScaledTickValues[{Log, Exp}]}, GridLinesStyle -> Directive[
-       GrayLevel[0.4, 0.5], 
-       AbsoluteThickness[1], 
-       AbsoluteDashing[{1, 2}]], ImageSize -> Scaled[0.8], Method -> {}, 
-     PlotLabel -> 
-     FormBox["\"Compare binary Search, linear search and search using search \
-by key (Log scale)\"", TraditionalForm], 
-     PlotRange -> {{0, 1.249925*^6}, {-13.420066561396082`, 0}}, 
-     PlotRangeClipping -> True, PlotRangePadding -> {{
-        Scaled[0.02], 
-        Scaled[0.02]}, {
-        Scaled[0.02], 
-        Scaled[0.05]}}, Ticks -> {Automatic, 
-       Charting`ScaledTicks[{Log, Exp}]}}],FormBox[
-    TagBox[
-     GridBox[{{
-        FormBox[
-         TemplateBox[{"\"Linear Search\""}, "PointLegend", 
-          DisplayFunction -> (StyleBox[
-            StyleBox[
-             PaneBox[
-              TagBox[
-               GridBox[{{
-                  TagBox[
-                   GridBox[{{
-                    GraphicsBox[{{
-                    Directive[
-                    EdgeForm[
-                    Directive[
-                    Opacity[0.3], 
-                    GrayLevel[0]]], 
-                    PointSize[0.231], 
-                    AbsoluteThickness[1.6], 
-                    RGBColor[0, 0, 1]], {
-                    LineBox[{{0, 10}, {20, 10}}]}}, {
-                    Directive[
-                    EdgeForm[
-                    Directive[
-                    Opacity[0.3], 
-                    GrayLevel[0]]], 
-                    PointSize[0.231], 
-                    AbsoluteThickness[1.6], 
-                    RGBColor[0, 0, 1]], {}}}, AspectRatio -> Full, 
-                    ImageSize -> {20, 10}, PlotRangePadding -> None, 
-                    ImagePadding -> Automatic, 
-                    BaselinePosition -> (Scaled[0.1] -> Baseline)], #}}, 
-                    GridBoxAlignment -> {
-                    "Columns" -> {Center, Left}, "Rows" -> {{Baseline}}}, 
-                    AutoDelete -> False, 
-                    GridBoxDividers -> {
-                    "Columns" -> {{False}}, "Rows" -> {{False}}}, 
-                    GridBoxItemSize -> {
-                    "Columns" -> {{All}}, "Rows" -> {{All}}}, 
-                    GridBoxSpacings -> {
-                    "Columns" -> {{0.5}}, "Rows" -> {{0.8}}}], "Grid"]}}, 
-                GridBoxAlignment -> {
-                 "Columns" -> {{Left}}, "Rows" -> {{Top}}}, AutoDelete -> 
-                False, GridBoxItemSize -> {
-                 "Columns" -> {{Automatic}}, "Rows" -> {{Automatic}}}, 
-                GridBoxSpacings -> {"Columns" -> {{1}}, "Rows" -> {{0}}}], 
-               "Grid"], Alignment -> Left, AppearanceElements -> None, 
-              ImageMargins -> {{5, 5}, {5, 5}}, ImageSizeAction -> 
-              "ResizeToFit"], LineIndent -> 0, StripOnInput -> False], {
-            FontFamily -> "Arial"}, Background -> Automatic, StripOnInput -> 
-            False]& ), InterpretationFunction :> (RowBox[{"PointLegend", "[", 
-             RowBox[{
-               RowBox[{"{", 
-                 RowBox[{"Directive", "[", 
-                   RowBox[{
-                    RowBox[{"PointSize", "[", "0.012833333333333334`", "]"}], 
-                    ",", 
-                    RowBox[{"AbsoluteThickness", "[", "1.6`", "]"}], ",", 
-                    InterpretationBox[
-                    ButtonBox[
-                    TooltipBox[
-                    GraphicsBox[{{
-                    GrayLevel[0], 
-                    RectangleBox[{0, 0}]}, {
-                    GrayLevel[0], 
-                    RectangleBox[{1, -1}]}, {
-                    RGBColor[0, 0, 1], 
-                    RectangleBox[{0, -1}, {2, 1}]}}, AspectRatio -> 1, Frame -> 
-                    True, FrameStyle -> RGBColor[0., 0., 0.6666666666666666], 
-                    FrameTicks -> None, PlotRangePadding -> None, ImageSize -> 
-                    Dynamic[{
-                    Automatic, 1.35 CurrentValue["FontCapHeight"]/
-                    AbsoluteCurrentValue[Magnification]}]], 
-                    "RGBColor[0, 0, 1]"], Appearance -> None, BaseStyle -> {},
-                     BaselinePosition -> Baseline, DefaultBaseStyle -> {}, 
-                    ButtonFunction :> With[{Typeset`box$ = EvaluationBox[]}, 
-                    If[
-                    Not[
-                    AbsoluteCurrentValue["Deployed"]], 
-                    SelectionMove[Typeset`box$, All, Expression]; 
-                    FrontEnd`Private`$ColorSelectorInitialAlpha = 1; 
-                    FrontEnd`Private`$ColorSelectorInitialColor = 
-                    RGBColor[0, 0, 1]; 
-                    FrontEnd`Private`$ColorSelectorUseMakeBoxes = True; 
-                    MathLink`CallFrontEnd[
-                    FrontEnd`AttachCell[Typeset`box$, 
-                    FrontEndResource["RGBColorValueSelector"], {
-                    0, {Left, Bottom}}, {Left, Top}, 
-                    "ClosingActions" -> {
-                    "SelectionDeparture", "ParentChanged", 
-                    "EvaluatorQuit"}]]]], BaseStyle -> Inherited, Evaluator -> 
-                    Automatic, Method -> "Preemptive"], 
-                    RGBColor[0, 0, 1], Editable -> False, Selectable -> 
-                    False]}], "]"}], "}"}], ",", 
-               RowBox[{"{", #, "}"}], ",", 
-               RowBox[{"LegendMarkers", "\[Rule]", 
-                 RowBox[{"{", 
-                   RowBox[{"{", 
-                    RowBox[{"False", ",", "Automatic"}], "}"}], "}"}]}], ",", 
-               RowBox[{"Joined", "\[Rule]", 
-                 RowBox[{"{", "True", "}"}]}], ",", 
-               RowBox[{"LabelStyle", "\[Rule]", 
-                 RowBox[{"{", "}"}]}], ",", 
-               RowBox[{"LegendLayout", "\[Rule]", "\"Column\""}]}], "]"}]& ), 
-          Editable -> True], TraditionalForm]}, {
-        FormBox[
-         TemplateBox[{"\"Binary Search\""}, "PointLegend", 
-          DisplayFunction -> (StyleBox[
-            StyleBox[
-             PaneBox[
-              TagBox[
-               GridBox[{{
-                  TagBox[
-                   GridBox[{{
-                    GraphicsBox[{{
-                    Directive[
-                    EdgeForm[
-                    Directive[
-                    Opacity[0.3], 
-                    GrayLevel[0]]], 
-                    PointSize[0.231], 
-                    AbsoluteThickness[1.6], 
-                    RGBColor[1, 0, 0]], {
-                    LineBox[{{0, 10}, {20, 10}}]}}, {
-                    Directive[
-                    EdgeForm[
-                    Directive[
-                    Opacity[0.3], 
-                    GrayLevel[0]]], 
-                    PointSize[0.231], 
-                    AbsoluteThickness[1.6], 
-                    RGBColor[1, 0, 0]], {}}}, AspectRatio -> Full, 
-                    ImageSize -> {20, 10}, PlotRangePadding -> None, 
-                    ImagePadding -> Automatic, 
-                    BaselinePosition -> (Scaled[0.1] -> Baseline)], #}}, 
-                    GridBoxAlignment -> {
-                    "Columns" -> {Center, Left}, "Rows" -> {{Baseline}}}, 
-                    AutoDelete -> False, 
-                    GridBoxDividers -> {
-                    "Columns" -> {{False}}, "Rows" -> {{False}}}, 
-                    GridBoxItemSize -> {
-                    "Columns" -> {{All}}, "Rows" -> {{All}}}, 
-                    GridBoxSpacings -> {
-                    "Columns" -> {{0.5}}, "Rows" -> {{0.8}}}], "Grid"]}}, 
-                GridBoxAlignment -> {
-                 "Columns" -> {{Left}}, "Rows" -> {{Top}}}, AutoDelete -> 
-                False, GridBoxItemSize -> {
-                 "Columns" -> {{Automatic}}, "Rows" -> {{Automatic}}}, 
-                GridBoxSpacings -> {"Columns" -> {{1}}, "Rows" -> {{0}}}], 
-               "Grid"], Alignment -> Left, AppearanceElements -> None, 
-              ImageMargins -> {{5, 5}, {5, 5}}, ImageSizeAction -> 
-              "ResizeToFit"], LineIndent -> 0, StripOnInput -> False], {
-            FontFamily -> "Arial"}, Background -> Automatic, StripOnInput -> 
-            False]& ), InterpretationFunction :> (RowBox[{"PointLegend", "[", 
-             RowBox[{
-               RowBox[{"{", 
-                 RowBox[{"Directive", "[", 
-                   RowBox[{
-                    RowBox[{"PointSize", "[", "0.012833333333333334`", "]"}], 
-                    ",", 
-                    RowBox[{"AbsoluteThickness", "[", "1.6`", "]"}], ",", 
-                    InterpretationBox[
-                    ButtonBox[
-                    TooltipBox[
-                    GraphicsBox[{{
-                    GrayLevel[0], 
-                    RectangleBox[{0, 0}]}, {
-                    GrayLevel[0], 
-                    RectangleBox[{1, -1}]}, {
-                    RGBColor[1, 0, 0], 
-                    RectangleBox[{0, -1}, {2, 1}]}}, AspectRatio -> 1, Frame -> 
-                    True, FrameStyle -> RGBColor[0.6666666666666666, 0., 0.], 
-                    FrameTicks -> None, PlotRangePadding -> None, ImageSize -> 
-                    Dynamic[{
-                    Automatic, 1.35 CurrentValue["FontCapHeight"]/
-                    AbsoluteCurrentValue[Magnification]}]], 
-                    "RGBColor[1, 0, 0]"], Appearance -> None, BaseStyle -> {},
-                     BaselinePosition -> Baseline, DefaultBaseStyle -> {}, 
-                    ButtonFunction :> With[{Typeset`box$ = EvaluationBox[]}, 
-                    If[
-                    Not[
-                    AbsoluteCurrentValue["Deployed"]], 
-                    SelectionMove[Typeset`box$, All, Expression]; 
-                    FrontEnd`Private`$ColorSelectorInitialAlpha = 1; 
-                    FrontEnd`Private`$ColorSelectorInitialColor = 
-                    RGBColor[1, 0, 0]; 
-                    FrontEnd`Private`$ColorSelectorUseMakeBoxes = True; 
-                    MathLink`CallFrontEnd[
-                    FrontEnd`AttachCell[Typeset`box$, 
-                    FrontEndResource["RGBColorValueSelector"], {
-                    0, {Left, Bottom}}, {Left, Top}, 
-                    "ClosingActions" -> {
-                    "SelectionDeparture", "ParentChanged", 
-                    "EvaluatorQuit"}]]]], BaseStyle -> Inherited, Evaluator -> 
-                    Automatic, Method -> "Preemptive"], 
-                    RGBColor[1, 0, 0], Editable -> False, Selectable -> 
-                    False]}], "]"}], "}"}], ",", 
-               RowBox[{"{", #, "}"}], ",", 
-               RowBox[{"LegendMarkers", "\[Rule]", 
-                 RowBox[{"{", 
-                   RowBox[{"{", 
-                    RowBox[{"False", ",", "Automatic"}], "}"}], "}"}]}], ",", 
-               RowBox[{"Joined", "\[Rule]", 
-                 RowBox[{"{", "True", "}"}]}], ",", 
-               RowBox[{"LabelStyle", "\[Rule]", 
-                 RowBox[{"{", "}"}]}], ",", 
-               RowBox[{"LegendLayout", "\[Rule]", "\"Column\""}]}], "]"}]& ), 
-          Editable -> True], TraditionalForm]}, {
-        FormBox[
-         TemplateBox[{"\"Search by Key\""}, "PointLegend", 
-          DisplayFunction -> (StyleBox[
-            StyleBox[
-             PaneBox[
-              TagBox[
-               GridBox[{{
-                  TagBox[
-                   GridBox[{{
-                    GraphicsBox[{{
-                    Directive[
-                    EdgeForm[
-                    Directive[
-                    Opacity[0.3], 
-                    GrayLevel[0]]], 
-                    PointSize[0.231], 
-                    AbsoluteThickness[1.6], 
-                    RGBColor[0, 1, 0]], {
-                    LineBox[{{0, 10}, {20, 10}}]}}, {
-                    Directive[
-                    EdgeForm[
-                    Directive[
-                    Opacity[0.3], 
-                    GrayLevel[0]]], 
-                    PointSize[0.231], 
-                    AbsoluteThickness[1.6], 
-                    RGBColor[0, 1, 0]], {}}}, AspectRatio -> Full, 
-                    ImageSize -> {20, 10}, PlotRangePadding -> None, 
-                    ImagePadding -> Automatic, 
-                    BaselinePosition -> (Scaled[0.1] -> Baseline)], #}}, 
-                    GridBoxAlignment -> {
-                    "Columns" -> {Center, Left}, "Rows" -> {{Baseline}}}, 
-                    AutoDelete -> False, 
-                    GridBoxDividers -> {
-                    "Columns" -> {{False}}, "Rows" -> {{False}}}, 
-                    GridBoxItemSize -> {
-                    "Columns" -> {{All}}, "Rows" -> {{All}}}, 
-                    GridBoxSpacings -> {
-                    "Columns" -> {{0.5}}, "Rows" -> {{0.8}}}], "Grid"]}}, 
-                GridBoxAlignment -> {
-                 "Columns" -> {{Left}}, "Rows" -> {{Top}}}, AutoDelete -> 
-                False, GridBoxItemSize -> {
-                 "Columns" -> {{Automatic}}, "Rows" -> {{Automatic}}}, 
-                GridBoxSpacings -> {"Columns" -> {{1}}, "Rows" -> {{0}}}], 
-               "Grid"], Alignment -> Left, AppearanceElements -> None, 
-              ImageMargins -> {{5, 5}, {5, 5}}, ImageSizeAction -> 
-              "ResizeToFit"], LineIndent -> 0, StripOnInput -> False], {
-            FontFamily -> "Arial"}, Background -> Automatic, StripOnInput -> 
-            False]& ), InterpretationFunction :> (RowBox[{"PointLegend", "[", 
-             RowBox[{
-               RowBox[{"{", 
-                 RowBox[{"Directive", "[", 
-                   RowBox[{
-                    RowBox[{"PointSize", "[", "0.012833333333333334`", "]"}], 
-                    ",", 
-                    RowBox[{"AbsoluteThickness", "[", "1.6`", "]"}], ",", 
-                    InterpretationBox[
-                    ButtonBox[
-                    TooltipBox[
-                    GraphicsBox[{{
-                    GrayLevel[0], 
-                    RectangleBox[{0, 0}]}, {
-                    GrayLevel[0], 
-                    RectangleBox[{1, -1}]}, {
-                    RGBColor[0, 1, 0], 
-                    RectangleBox[{0, -1}, {2, 1}]}}, AspectRatio -> 1, Frame -> 
-                    True, FrameStyle -> RGBColor[0., 0.6666666666666666, 0.], 
-                    FrameTicks -> None, PlotRangePadding -> None, ImageSize -> 
-                    Dynamic[{
-                    Automatic, 1.35 CurrentValue["FontCapHeight"]/
-                    AbsoluteCurrentValue[Magnification]}]], 
-                    "RGBColor[0, 1, 0]"], Appearance -> None, BaseStyle -> {},
-                     BaselinePosition -> Baseline, DefaultBaseStyle -> {}, 
-                    ButtonFunction :> With[{Typeset`box$ = EvaluationBox[]}, 
-                    If[
-                    Not[
-                    AbsoluteCurrentValue["Deployed"]], 
-                    SelectionMove[Typeset`box$, All, Expression]; 
-                    FrontEnd`Private`$ColorSelectorInitialAlpha = 1; 
-                    FrontEnd`Private`$ColorSelectorInitialColor = 
-                    RGBColor[0, 1, 0]; 
-                    FrontEnd`Private`$ColorSelectorUseMakeBoxes = True; 
-                    MathLink`CallFrontEnd[
-                    FrontEnd`AttachCell[Typeset`box$, 
-                    FrontEndResource["RGBColorValueSelector"], {
-                    0, {Left, Bottom}}, {Left, Top}, 
-                    "ClosingActions" -> {
-                    "SelectionDeparture", "ParentChanged", 
-                    "EvaluatorQuit"}]]]], BaseStyle -> Inherited, Evaluator -> 
-                    Automatic, Method -> "Preemptive"], 
-                    RGBColor[0, 1, 0], Editable -> False, Selectable -> 
-                    False]}], "]"}], "}"}], ",", 
-               RowBox[{"{", #, "}"}], ",", 
-               RowBox[{"LegendMarkers", "\[Rule]", 
-                 RowBox[{"{", 
-                   RowBox[{"{", 
-                    RowBox[{"False", ",", "Automatic"}], "}"}], "}"}]}], ",", 
-               RowBox[{"Joined", "\[Rule]", 
-                 RowBox[{"{", "True", "}"}]}], ",", 
-               RowBox[{"LabelStyle", "\[Rule]", 
-                 RowBox[{"{", "}"}]}], ",", 
-               RowBox[{"LegendLayout", "\[Rule]", "\"Column\""}]}], "]"}]& ), 
-          Editable -> True], TraditionalForm]}}, 
-      GridBoxAlignment -> {"Columns" -> {{Left}}}, AutoDelete -> False, 
-      GridBoxItemSize -> {
-       "Columns" -> {{Automatic}}, "Rows" -> {{Automatic}}}, 
-      GridBoxSpacings -> {"Columns" -> {{0}}}], "Grid"], TraditionalForm]},
-  "Legended",
-  DisplayFunction->(GridBox[{{
-      TagBox[
-       ItemBox[
-        PaneBox[
-         TagBox[#, "SkipImageSizeLevel"], Alignment -> {Center, Baseline}, 
-         BaselinePosition -> Baseline], DefaultBaseStyle -> "Labeled"], 
-       "SkipImageSizeLevel"], 
-      ItemBox[#2, DefaultBaseStyle -> "LabeledLabel"]}}, 
-    GridBoxAlignment -> {"Columns" -> {{Center}}, "Rows" -> {{Center}}}, 
-    AutoDelete -> False, GridBoxItemSize -> Automatic, 
-    BaselinePosition -> {1, 1}]& ),
-  Editable->True,
-  InterpretationFunction->(RowBox[{"Legended", "[", 
-     RowBox[{#, ",", 
-       RowBox[{"Placed", "[", 
-         RowBox[{#2, ",", "After"}], "]"}]}], "]"}]& )]], "Output",
- CellChangeTimes->{
-  3.719599139870815*^9, 3.71959920752015*^9, 3.719599880945788*^9, {
-   3.7196000342618704`*^9, 3.7196000494755745`*^9}, {3.7196000997841635`*^9, 
-   3.7196001257100744`*^9}, 3.719600184908635*^9, {3.7196003519947853`*^9, 
-   3.7196003721355124`*^9}, 3.719600409602453*^9, 3.719600457874558*^9, {
-   3.719600492023857*^9, 3.719600517279354*^9}, 3.719600600411542*^9, 
-   3.7196006480055437`*^9, 3.7196007030163746`*^9, {3.7196007459156413`*^9, 
-   3.7196007894187913`*^9}, 3.7196008270933447`*^9, 3.719600870737809*^9, 
-   3.7196009492785964`*^9, 3.7196010859490905`*^9, 3.7196427149047866`*^9, 
-   3.7196509980056257`*^9, 3.7196765006613345`*^9, 3.7196766446606326`*^9, {
-   3.719676740740083*^9, 3.7196767703822746`*^9}, 3.719677432401199*^9, 
-   3.7196774905991697`*^9, {3.71967753580482*^9, 3.7196775497981057`*^9}, 
-   3.7196775892601876`*^9, {3.7196777610835543`*^9, 3.719677790070382*^9}, {
-   3.719677835199351*^9, 3.71967785250774*^9}, 3.7196779018183565`*^9, 
-   3.7196779575886297`*^9, 3.7196779993336887`*^9}],
-
-Cell[BoxData[
- TemplateBox[{GraphicsBox[{{{}, {{{}, {}, {
-         Hue[0.67, 0.6, 0.6], 
-         Directive[
-          PointSize[0.012833333333333334`], 
-          AbsoluteThickness[1.6], 
-          RGBColor[0, 0, 1]], 
-         LineBox[{{5., 4.970570629572626*^-6}, {10., 3.009467910677806*^-6}, {
-          50., 5.919964282271231*^-6}, {100., 9.64422664189224*^-6}, {500., 
-          0.000040120129454773583`}, {1000., 0.00007852475223208367}, {5000., 
-          0.0007508237547822527}, {10000., 0.0010126584598489075`}, {50000., 
-          0.004624107927363647}, {100000., 0.008512043553342164}, {500000., 
-          0.043163112061074926`}, {1.*^6, 0.08668318147311453}, {
-          1.2639346245053548`*^6, 
-          0.10789890020626391`}}]}}}, {}}, {{}, {{{}, {}, {
-         Hue[0.67, 0.6, 0.6], 
-         Directive[
-          PointSize[0.012833333333333334`], 
-          AbsoluteThickness[1.6], 
-          RGBColor[1, 0, 0]], 
-         LineBox[{{5., 3.6106283703016377`*^-6}, {10., 
-          3.933202275465618*^-6}, {50., 4.941245729103133*^-6}, {100., 
-          5.410444136614567*^-6}, {500., 7.298234604335291*^-6}, {1000., 
-          8.746151565013626*^-6}, {5000., 0.00003249565533271714}, {10000., 
-          0.000024995812037671426`}, {50000., 0.00004437590563546756}, {
-          100000., 0.000043415515145159843`}, {500000., 
-          0.00006611298810803134}, {1.*^6, 0.00008423577659726788}, {5.*^6, 
-          0.00011527618374088888`}}]}}}, {}}, {{}, {{{}, {}, {
-         Hue[0.67, 0.6, 0.6], 
-         Directive[
-          PointSize[0.012833333333333334`], 
-          AbsoluteThickness[1.6], 
-          RGBColor[0, 1, 0]], 
-         LineBox[{{5., 3.244067114433462*^-6}, {10., 
-          2.9104963715934465`*^-6}, {50., 3.5849690823909314`*^-6}, {100., 
-          3.0497896488233115`*^-6}, {500., 3.3467042660772355`*^-6}, {1000., 
-          3.3650323288703098`*^-6}, {5000., 0.000014904380663596229`}, {
-          10000., 8.196309681207658*^-6}, {50000., 
-          0.000011337739644012856`}, {100000., 0.000011297417905726804`}, {
-          500000., 0.000014497497669694326`}, {1.*^6, 
-          0.000018364718920338417`}, {3.119324473351585*^6, 
-          0.00003239485098734038}}]}}}, {}}}, {
+         LineBox[{{5., 3.141412689987656*^-6}, {10., 
+          2.8921524065347437`*^-6}, {50., 2.8041781888454505`*^-6}, {100., 
+          9.167646601702662*^-6}, {500., 2.675882454715034*^-6}, {1000., 
+          3.236718092484159*^-6}, {5000., 2.9764610318172568`*^-6}, {10000., 
+          3.2330525000690002`*^-6}, {50000., 3.167071836793767*^-6}, {100000.,
+           3.819547284678038*^-6}, {500000., 6.689706136029372*^-6}, {1.*^6, 
+          0.000010908802995004408`}, {2.0376797221600136`*^6, 
+          0.000018580887894454542`}}]}}}, {}}}, {
     DisplayFunction -> Identity, PlotRangePadding -> {{
         Scaled[0.02], 
         Scaled[0.02]}, {
         Scaled[0.02], 
         Scaled[0.05]}}, AxesOrigin -> {0, 0}, 
-     PlotRange -> {{0, 1.249925*^6}, {0, 0.10789890020626391`}}, 
+     PlotRange -> {{0, 1.249925*^6}, {0, 0.000026709339049300735`}}, 
      DisplayFunction -> Identity, AspectRatio -> 
      NCache[GoldenRatio^(-1), 0.6180339887498948], Axes -> {False, False}, 
      AxesLabel -> {
@@ -895,9 +385,9 @@ Cell[BoxData[
        AbsoluteThickness[1], 
        AbsoluteDashing[{1, 2}]], ImageSize -> Scaled[0.8], Method -> {}, 
      PlotLabel -> 
-     FormBox["\"Compare binary Search, linear search and search using search \
-by key\"", TraditionalForm], 
-     PlotRange -> {{0, 1.249925*^6}, {0, 0.10789890020626391`}}, 
+     FormBox["\"Compare rs hash, simple hash and search using default hash\"",
+        TraditionalForm], 
+     PlotRange -> {{0, 1.249925*^6}, {0, 0.000026709339049300735`}}, 
      PlotRangeClipping -> True, PlotRangePadding -> {{
         Scaled[0.02], 
         Scaled[0.02]}, {
@@ -906,7 +396,7 @@ by key\"", TraditionalForm],
     TagBox[
      GridBox[{{
         FormBox[
-         TemplateBox[{"\"Linear Search\""}, "PointLegend", 
+         TemplateBox[{"\"Simple hash (search)\""}, "PointLegend", 
           DisplayFunction -> (StyleBox[
             StyleBox[
              PaneBox[
@@ -1009,7 +499,7 @@ by key\"", TraditionalForm],
                RowBox[{"LegendLayout", "\[Rule]", "\"Column\""}]}], "]"}]& ), 
           Editable -> True], TraditionalForm]}, {
         FormBox[
-         TemplateBox[{"\"Binary Search\""}, "PointLegend", 
+         TemplateBox[{"\"RS hash (search)\""}, "PointLegend", 
           DisplayFunction -> (StyleBox[
             StyleBox[
              PaneBox[
@@ -1112,7 +602,7 @@ by key\"", TraditionalForm],
                RowBox[{"LegendLayout", "\[Rule]", "\"Column\""}]}], "]"}]& ), 
           Editable -> True], TraditionalForm]}, {
         FormBox[
-         TemplateBox[{"\"Search by Key\""}, "PointLegend", 
+         TemplateBox[{"\"Default hash (search)\""}, "PointLegend", 
           DisplayFunction -> (StyleBox[
             StyleBox[
              PaneBox[
@@ -1235,21 +725,8 @@ by key\"", TraditionalForm],
      RowBox[{#, ",", 
        RowBox[{"Placed", "[", 
          RowBox[{#2, ",", "After"}], "]"}]}], "]"}]& )]], "Output",
- CellChangeTimes->{
-  3.719599139870815*^9, 3.71959920752015*^9, 3.719599880945788*^9, {
-   3.7196000342618704`*^9, 3.7196000494755745`*^9}, {3.7196000997841635`*^9, 
-   3.7196001257100744`*^9}, 3.719600184908635*^9, {3.7196003519947853`*^9, 
-   3.7196003721355124`*^9}, 3.719600409602453*^9, 3.719600457874558*^9, {
-   3.719600492023857*^9, 3.719600517279354*^9}, 3.719600600411542*^9, 
-   3.7196006480055437`*^9, 3.7196007030163746`*^9, {3.7196007459156413`*^9, 
-   3.7196007894187913`*^9}, 3.7196008270933447`*^9, 3.719600870737809*^9, 
-   3.7196009492785964`*^9, 3.7196010859490905`*^9, 3.7196427149047866`*^9, 
-   3.7196509980056257`*^9, 3.7196765006613345`*^9, 3.7196766446606326`*^9, {
-   3.719676740740083*^9, 3.7196767703822746`*^9}, 3.719677432401199*^9, 
-   3.7196774905991697`*^9, {3.71967753580482*^9, 3.7196775497981057`*^9}, 
-   3.7196775892601876`*^9, {3.7196777610835543`*^9, 3.719677790070382*^9}, {
-   3.719677835199351*^9, 3.71967785250774*^9}, 3.7196779018183565`*^9, 
-   3.7196779575886297`*^9, 3.7196779994648237`*^9}],
+ CellChangeTimes->{3.7198303374377813`*^9, 3.7198306306665573`*^9, 
+  3.7198320330030975`*^9, 3.719842742319138*^9}],
 
 Cell[BoxData[
  TemplateBox[{GraphicsBox[{{}, {{{}, {}, {
@@ -1258,19 +735,21 @@ Cell[BoxData[
          PointSize[0.012833333333333334`], 
          AbsoluteThickness[1.6], 
          RGBColor[0, 0, 1]], 
-        LineBox[{{5., 4.970570629572626*^-6}, {10., 3.009467910677806*^-6}, {
-         50., 5.919964282271231*^-6}, {100., 9.64422664189224*^-6}, {500., 
-         0.000040120129454773583`}, {1000., 0.00007852475223208367}, {5000., 
-         0.0007508237547822527}, {10000., 0.0010126584598489075`}, {50000., 
-         0.004624107927363647}, {100000., 0.008512043553342164}, {500000., 
-         0.043163112061074926`}, {1.*^6, 0.08668318147311453}, {
-         1.2639346245053548`*^6, 0.10789890020626391`}}]}}}, {}}, {
+        LineBox[{{5., 0.000013196132653390392`}, {10., 
+         0.000011103079390866484`}, {50., 0.00001115806327692235}, {100., 
+         0.000010905137401065745`}, {500., 0.00001109574820605974}, {1000., 
+         0.000011183722423748487`}, {5000., 0.000011539284886904478`}, {
+         10000., 0.000011531953702108577`}, {50000., 
+         0.00001240803028657922}, {100000., 0.000013038512180081341`}, {
+         500000., 0.000017345583254240184`}, {1.*^6, 
+         0.000022096191010234634`}, {1.518541408906103*^6, 
+         0.000026709339049300735`}}]}}}, {}}, {
     DisplayFunction -> Identity, PlotRangePadding -> {{
         Scaled[0.02], 
         Scaled[0.02]}, {
         Scaled[0.02], 
         Scaled[0.05]}}, AxesOrigin -> {0, 0}, 
-     PlotRange -> {{0, 1.249925*^6}, {0, 0.10789890020626391`}}, 
+     PlotRange -> {{0, 1.249925*^6}, {0, 0.000026709339049300735`}}, 
      DisplayFunction -> Identity, AspectRatio -> 
      NCache[GoldenRatio^(-1), 0.6180339887498948], Axes -> {False, False}, 
      AxesLabel -> {
@@ -1283,17 +762,14 @@ Cell[BoxData[
        GrayLevel[0.4, 0.5], 
        AbsoluteThickness[1], 
        AbsoluteDashing[{1, 2}]], ImageSize -> Scaled[0.8], Method -> {}, 
-     PlotLabel -> 
-     FormBox["\"Compare binary Search, linear search and search using search \
-by key\"", TraditionalForm], 
-     PlotRange -> {{0, 1.249925*^6}, {0, 0.10789890020626391`}}, 
+     PlotRange -> {{0, 1.249925*^6}, {0, 0.000026709339049300735`}}, 
      PlotRangeClipping -> True, PlotRangePadding -> {{
         Scaled[0.02], 
         Scaled[0.02]}, {
         Scaled[0.02], 
         Scaled[0.05]}}, Ticks -> {Automatic, Automatic}}],FormBox[
     FormBox[
-     TemplateBox[{"\"Linear Search\""}, "PointLegend", 
+     TemplateBox[{"\"Simple hash (search)\""}, "PointLegend", 
       DisplayFunction -> (FormBox[
         StyleBox[
          StyleBox[
@@ -1413,21 +889,8 @@ by key\"", TraditionalForm],
      RowBox[{#, ",", 
        RowBox[{"Placed", "[", 
          RowBox[{#2, ",", "After"}], "]"}]}], "]"}]& )]], "Output",
- CellChangeTimes->{
-  3.719599139870815*^9, 3.71959920752015*^9, 3.719599880945788*^9, {
-   3.7196000342618704`*^9, 3.7196000494755745`*^9}, {3.7196000997841635`*^9, 
-   3.7196001257100744`*^9}, 3.719600184908635*^9, {3.7196003519947853`*^9, 
-   3.7196003721355124`*^9}, 3.719600409602453*^9, 3.719600457874558*^9, {
-   3.719600492023857*^9, 3.719600517279354*^9}, 3.719600600411542*^9, 
-   3.7196006480055437`*^9, 3.7196007030163746`*^9, {3.7196007459156413`*^9, 
-   3.7196007894187913`*^9}, 3.7196008270933447`*^9, 3.719600870737809*^9, 
-   3.7196009492785964`*^9, 3.7196010859490905`*^9, 3.7196427149047866`*^9, 
-   3.7196509980056257`*^9, 3.7196765006613345`*^9, 3.7196766446606326`*^9, {
-   3.719676740740083*^9, 3.7196767703822746`*^9}, 3.719677432401199*^9, 
-   3.7196774905991697`*^9, {3.71967753580482*^9, 3.7196775497981057`*^9}, 
-   3.7196775892601876`*^9, {3.7196777610835543`*^9, 3.719677790070382*^9}, {
-   3.719677835199351*^9, 3.71967785250774*^9}, 3.7196779018183565`*^9, 
-   3.7196779575886297`*^9, 3.7196779995338564`*^9}],
+ CellChangeTimes->{3.7198303374377813`*^9, 3.7198306306665573`*^9, 
+  3.7198320330030975`*^9, 3.7198427424162064`*^9}],
 
 Cell[BoxData[
  TemplateBox[{GraphicsBox[{{}, {{{}, {}, {
@@ -1436,20 +899,21 @@ Cell[BoxData[
          PointSize[0.012833333333333334`], 
          AbsoluteThickness[1.6], 
          RGBColor[1, 0, 0]], 
-        LineBox[{{5., 3.6106283703016377`*^-6}, {10., 
-         3.933202275465618*^-6}, {50., 4.941245729103133*^-6}, {100., 
-         5.410444136614567*^-6}, {500., 7.298234604335291*^-6}, {1000., 
-         8.746151565013626*^-6}, {5000., 0.00003249565533271714}, {10000., 
-         0.000024995812037671426`}, {50000., 0.00004437590563546756}, {
-         100000., 0.000043415515145159843`}, {500000., 
-         0.00006611298810803134}, {1.*^6, 0.00008423577659726788}, {5.*^6, 
-         0.00011527618374088888`}}]}}}, {}}, {
+        LineBox[{{5., 0.000011073754651636736`}, {10., 
+         0.000011022436357984662`}, {50., 0.00001068153626443873}, {100., 
+         0.00001072552337328326}, {500., 0.00001058256526953863}, {1000., 
+         0.000010879478254239017`}, {5000., 0.000011062757874434893`}, {
+         10000., 0.000011128738537686811`}, {50000., 
+         0.000011773882800696355`}, {100000., 0.00001282224222814321}, {
+         500000., 0.000016117609799408683`}, {1.*^6, 
+         0.000021447381152199795`}, {1.334333000500081*^6, 
+         0.00002420573943859682}}]}}}, {}}, {
     DisplayFunction -> Identity, PlotRangePadding -> {{
         Scaled[0.02], 
         Scaled[0.02]}, {
         Scaled[0.02], 
         Scaled[0.05]}}, AxesOrigin -> {0, 0}, 
-     PlotRange -> {{0, 1.249925*^6}, {0, 0.00011527618374088888`}}, 
+     PlotRange -> {{0, 1.249925*^6}, {0, 0.00002420573943859682}}, 
      DisplayFunction -> Identity, AspectRatio -> 
      NCache[GoldenRatio^(-1), 0.6180339887498948], Axes -> {False, False}, 
      AxesLabel -> {
@@ -1462,14 +926,14 @@ Cell[BoxData[
        GrayLevel[0.4, 0.5], 
        AbsoluteThickness[1], 
        AbsoluteDashing[{1, 2}]], ImageSize -> Scaled[0.8], Method -> {}, 
-     PlotRange -> {{0, 1.249925*^6}, {0, 0.00011527618374088888`}}, 
+     PlotRange -> {{0, 1.249925*^6}, {0, 0.00002420573943859682}}, 
      PlotRangeClipping -> True, PlotRangePadding -> {{
         Scaled[0.02], 
         Scaled[0.02]}, {
         Scaled[0.02], 
         Scaled[0.05]}}, Ticks -> {Automatic, Automatic}}],FormBox[
     FormBox[
-     TemplateBox[{"\"Binary Search\""}, "PointLegend", 
+     TemplateBox[{"\"RS hash (search)\""}, "PointLegend", 
       DisplayFunction -> (FormBox[
         StyleBox[
          StyleBox[
@@ -1589,21 +1053,8 @@ Cell[BoxData[
      RowBox[{#, ",", 
        RowBox[{"Placed", "[", 
          RowBox[{#2, ",", "After"}], "]"}]}], "]"}]& )]], "Output",
- CellChangeTimes->{
-  3.719599139870815*^9, 3.71959920752015*^9, 3.719599880945788*^9, {
-   3.7196000342618704`*^9, 3.7196000494755745`*^9}, {3.7196000997841635`*^9, 
-   3.7196001257100744`*^9}, 3.719600184908635*^9, {3.7196003519947853`*^9, 
-   3.7196003721355124`*^9}, 3.719600409602453*^9, 3.719600457874558*^9, {
-   3.719600492023857*^9, 3.719600517279354*^9}, 3.719600600411542*^9, 
-   3.7196006480055437`*^9, 3.7196007030163746`*^9, {3.7196007459156413`*^9, 
-   3.7196007894187913`*^9}, 3.7196008270933447`*^9, 3.719600870737809*^9, 
-   3.7196009492785964`*^9, 3.7196010859490905`*^9, 3.7196427149047866`*^9, 
-   3.7196509980056257`*^9, 3.7196765006613345`*^9, 3.7196766446606326`*^9, {
-   3.719676740740083*^9, 3.7196767703822746`*^9}, 3.719677432401199*^9, 
-   3.7196774905991697`*^9, {3.71967753580482*^9, 3.7196775497981057`*^9}, 
-   3.7196775892601876`*^9, {3.7196777610835543`*^9, 3.719677790070382*^9}, {
-   3.719677835199351*^9, 3.71967785250774*^9}, 3.7196779018183565`*^9, 
-   3.7196779575886297`*^9, 3.719677999587901*^9}],
+ CellChangeTimes->{3.7198303374377813`*^9, 3.7198306306665573`*^9, 
+  3.7198320330030975`*^9, 3.7198427424667425`*^9}],
 
 Cell[BoxData[
  TemplateBox[{GraphicsBox[{{}, {{{}, {}, {
@@ -1612,20 +1063,20 @@ Cell[BoxData[
          PointSize[0.012833333333333334`], 
          AbsoluteThickness[1.6], 
          RGBColor[1, 0, 0]], 
-        LineBox[{{5., 3.244067114433462*^-6}, {10., 
-         2.9104963715934465`*^-6}, {50., 3.5849690823909314`*^-6}, {100., 
-         3.0497896488233115`*^-6}, {500., 3.3467042660772355`*^-6}, {1000., 
-         3.3650323288703098`*^-6}, {5000., 0.000014904380663596229`}, {10000.,
-          8.196309681207658*^-6}, {50000., 0.000011337739644012856`}, {
-         100000., 0.000011297417905726804`}, {500000., 
-         0.000014497497669694326`}, {1.*^6, 0.000018364718920338417`}, {
-         3.119324473351585*^6, 0.00003239485098734038}}]}}}, {}}, {
+        LineBox[{{5., 3.141412689987656*^-6}, {10., 
+         2.8921524065347437`*^-6}, {50., 2.8041781888454505`*^-6}, {100., 
+         9.167646601702662*^-6}, {500., 2.675882454715034*^-6}, {1000., 
+         3.236718092484159*^-6}, {5000., 2.9764610318172568`*^-6}, {10000., 
+         3.2330525000690002`*^-6}, {50000., 3.167071836793767*^-6}, {100000., 
+         3.819547284678038*^-6}, {500000., 6.689706136029372*^-6}, {1.*^6, 
+         0.000010908802995004408`}, {2.0376797221600136`*^6, 
+         0.000018580887894454542`}}]}}}, {}}, {
     DisplayFunction -> Identity, PlotRangePadding -> {{
         Scaled[0.02], 
         Scaled[0.02]}, {
         Scaled[0.02], 
         Scaled[0.05]}}, AxesOrigin -> {0, 0}, 
-     PlotRange -> {{0, 1.249925*^6}, {0, 0.00003239485098734038}}, 
+     PlotRange -> {{0, 1.249925*^6}, {0, 0.000018580887894454542`}}, 
      DisplayFunction -> Identity, AspectRatio -> 
      NCache[GoldenRatio^(-1), 0.6180339887498948], Axes -> {False, False}, 
      AxesLabel -> {
@@ -1638,14 +1089,14 @@ Cell[BoxData[
        GrayLevel[0.4, 0.5], 
        AbsoluteThickness[1], 
        AbsoluteDashing[{1, 2}]], ImageSize -> Scaled[0.8], Method -> {}, 
-     PlotRange -> {{0, 1.249925*^6}, {0, 0.00003239485098734038}}, 
+     PlotRange -> {{0, 1.249925*^6}, {0, 0.000018580887894454542`}}, 
      PlotRangeClipping -> True, PlotRangePadding -> {{
         Scaled[0.02], 
         Scaled[0.02]}, {
         Scaled[0.02], 
         Scaled[0.05]}}, Ticks -> {Automatic, Automatic}}],FormBox[
     FormBox[
-     TemplateBox[{"\"Search by Key\""}, "PointLegend", 
+     TemplateBox[{"\"Default hash (search)\""}, "PointLegend", 
       DisplayFunction -> (FormBox[
         StyleBox[
          StyleBox[
@@ -1765,21 +1216,8 @@ Cell[BoxData[
      RowBox[{#, ",", 
        RowBox[{"Placed", "[", 
          RowBox[{#2, ",", "After"}], "]"}]}], "]"}]& )]], "Output",
- CellChangeTimes->{
-  3.719599139870815*^9, 3.71959920752015*^9, 3.719599880945788*^9, {
-   3.7196000342618704`*^9, 3.7196000494755745`*^9}, {3.7196000997841635`*^9, 
-   3.7196001257100744`*^9}, 3.719600184908635*^9, {3.7196003519947853`*^9, 
-   3.7196003721355124`*^9}, 3.719600409602453*^9, 3.719600457874558*^9, {
-   3.719600492023857*^9, 3.719600517279354*^9}, 3.719600600411542*^9, 
-   3.7196006480055437`*^9, 3.7196007030163746`*^9, {3.7196007459156413`*^9, 
-   3.7196007894187913`*^9}, 3.7196008270933447`*^9, 3.719600870737809*^9, 
-   3.7196009492785964`*^9, 3.7196010859490905`*^9, 3.7196427149047866`*^9, 
-   3.7196509980056257`*^9, 3.7196765006613345`*^9, 3.7196766446606326`*^9, {
-   3.719676740740083*^9, 3.7196767703822746`*^9}, 3.719677432401199*^9, 
-   3.7196774905991697`*^9, {3.71967753580482*^9, 3.7196775497981057`*^9}, 
-   3.7196775892601876`*^9, {3.7196777610835543`*^9, 3.719677790070382*^9}, {
-   3.719677835199351*^9, 3.71967785250774*^9}, 3.7196779018183565`*^9, 
-   3.7196779575886297`*^9, 3.7196779996514487`*^9}]
+ CellChangeTimes->{3.7198303374377813`*^9, 3.7198306306665573`*^9, 
+  3.7198320330030975`*^9, 3.719842742663392*^9}]
 }, Open  ]],
 
 Cell[BoxData[{
@@ -1790,22 +1228,17 @@ Cell[BoxData[{
   ";"}], "\[IndentingNewLine]", 
  RowBox[{
   RowBox[{"Export", "[", 
-   RowBox[{"\"\<Comp2.gif\>\"", ",", "Plot2", ",", 
+   RowBox[{"\"\<Simple.gif\>\"", ",", "Plot2", ",", 
     RowBox[{"ImageSize", "\[Rule]", "2048"}]}], "]"}], 
   ";"}], "\[IndentingNewLine]", 
  RowBox[{
   RowBox[{"Export", "[", 
-   RowBox[{"\"\<Linear.gif\>\"", ",", "Plot3", ",", 
+   RowBox[{"\"\<RS.gif\>\"", ",", "Plot3", ",", 
     RowBox[{"ImageSize", "\[Rule]", "2048"}]}], "]"}], 
   ";"}], "\[IndentingNewLine]", 
  RowBox[{
   RowBox[{"Export", "[", 
-   RowBox[{"\"\<Binary.gif\>\"", ",", "Plot4", ",", 
-    RowBox[{"ImageSize", "\[Rule]", "2048"}]}], "]"}], 
-  ";"}], "\[IndentingNewLine]", 
- RowBox[{
-  RowBox[{"Export", "[", 
-   RowBox[{"\"\<Map.gif\>\"", ",", "Plot5", ",", 
+   RowBox[{"\"\<Default.gif\>\"", ",", "Plot4", ",", 
     RowBox[{"ImageSize", "\[Rule]", "2048"}]}], "]"}], ";"}]}], "Input",
  CellChangeTimes->{{3.71664110869312*^9, 3.716641146244195*^9}, {
   3.7166412022296147`*^9, 3.716641205389699*^9}, {3.716641347274222*^9, 
@@ -1815,7 +1248,8 @@ Cell[BoxData[{
   3.716714795181678*^9, 3.7167147992854233`*^9}, {3.719598218784408*^9, 
   3.719598243933489*^9}, {3.7195994527640038`*^9, 3.719599469495936*^9}, {
   3.7195995613430743`*^9, 3.719599566804941*^9}, {3.7196005157182493`*^9, 
-  3.719600515806099*^9}}],
+  3.719600515806099*^9}, {3.719830277111906*^9, 3.719830286611004*^9}, {
+  3.719830580206839*^9, 3.7198305969321327`*^9}}],
 
 Cell[CellGroupData[{
 
@@ -1828,26 +1262,26 @@ Cell[BoxData[
       RowBox[{
        RowBox[{"Join", "[", 
         RowBox[{
-         RowBox[{"{", "\"\<Time\>\"", "}"}], ",", 
-         RowBox[{"binarySearchResults", "[", 
+         RowBox[{"{", "\"\<Number\>\"", "}"}], ",", 
+         RowBox[{"rsSearchResults", "[", 
           RowBox[{"[", 
            RowBox[{"All", ",", "1"}], "]"}], "]"}]}], "]"}], ",", 
        RowBox[{"Join", "[", 
         RowBox[{
-         RowBox[{"{", "\"\<Linear Search\>\"", "}"}], ",", 
-         RowBox[{"linearSearchResults", "[", 
+         RowBox[{"{", "\"\<Simple hash (search) sec.\>\"", "}"}], ",", 
+         RowBox[{"simpleSearchResults", "[", 
           RowBox[{"[", 
            RowBox[{"All", ",", "2"}], "]"}], "]"}]}], "]"}], ",", 
        RowBox[{"Join", "[", 
         RowBox[{
-         RowBox[{"{", "\"\<Binary Search\>\"", "}"}], ",", 
-         RowBox[{"binarySearchResults", "[", 
+         RowBox[{"{", "\"\<RS hash (search) sec.\>\"", "}"}], ",", 
+         RowBox[{"rsSearchResults", "[", 
           RowBox[{"[", 
            RowBox[{"All", ",", "2"}], "]"}], "]"}]}], "]"}], ",", 
        RowBox[{"Join", "[", 
         RowBox[{
-         RowBox[{"{", "\"\<Search by Key\>\"", "}"}], ",", 
-         RowBox[{"mapSearchResults", "[", 
+         RowBox[{"{", "\"\<Default hash (search) sec.\>\"", "}"}], ",", 
+         RowBox[{"defaultSearchResults", "[", 
           RowBox[{"[", 
            RowBox[{"All", ",", "2"}], "]"}], "]"}]}], "]"}]}], "}"}], "]"}], 
     ",", 
@@ -1870,38 +1304,40 @@ Cell[BoxData[
    3.7195980772600527`*^9, 3.719598077263054*^9}, {3.7195981771413803`*^9, 
    3.7195981884165535`*^9}, {3.7195982439354887`*^9, 
    3.7195982643558407`*^9}, {3.71959871093808*^9, 3.71959873671665*^9}, 
-   3.7196004017953653`*^9}],
+   3.7196004017953653`*^9, 3.719829919711076*^9, {3.719829951008221*^9, 
+   3.719829963954633*^9}, 3.7198300211745214`*^9, {3.7198300704662724`*^9, 
+   3.7198301192873*^9}, {3.7198320136801863`*^9, 3.719832030986209*^9}}],
 
 Cell[BoxData[
  TagBox[GridBox[{
-    {"\<\"Time\"\>", "\<\"Linear Search\"\>", "\<\"Binary Search\"\>", \
-"\<\"Search by Key\"\>"},
-    {"5", "4.970570629572626`*^-6", "3.6106283703016377`*^-6", 
-     "3.244067114433462`*^-6"},
-    {"10", "3.009467910677806`*^-6", "3.933202275465618`*^-6", 
-     "2.9104963715934465`*^-6"},
-    {"50", "5.919964282271231`*^-6", "4.941245729103133`*^-6", 
-     "3.5849690823909314`*^-6"},
-    {"100", "9.64422664189224`*^-6", "5.410444136614567`*^-6", 
-     "3.0497896488233115`*^-6"},
-    {"500", "0.000040120129454773583`", "7.298234604335291`*^-6", 
-     "3.3467042660772355`*^-6"},
-    {"1000", "0.00007852475223208367`", "8.746151565013626`*^-6", 
-     "3.3650323288703098`*^-6"},
-    {"5000", "0.0007508237547822527`", "0.00003249565533271714`", 
-     "0.000014904380663596229`"},
-    {"10000", "0.0010126584598489075`", "0.000024995812037671426`", 
-     "8.196309681207658`*^-6"},
-    {"50000", "0.004624107927363647`", "0.00004437590563546756`", 
-     "0.000011337739644012856`"},
-    {"100000", "0.008512043553342164`", "0.000043415515145159843`", 
-     "0.000011297417905726804`"},
-    {"500000", "0.043163112061074926`", "0.00006611298810803134`", 
-     "0.000014497497669694326`"},
-    {"1000000", "0.08668318147311453`", "0.00008423577659726788`", 
-     "0.000018364718920338417`"},
-    {"5000000", "0.4082130871898835`", "0.00011527618374088888`", 
-     "0.00004484510404950015`"}
+    {"\<\"Number\"\>", "\<\"Simple hash (search) sec.\"\>", "\<\"RS hash \
+(search) sec.\"\>", "\<\"Default hash (search) sec.\"\>"},
+    {"5", "0.000013196132653390392`", "0.000011073754651636736`", 
+     "3.141412689987656`*^-6"},
+    {"10", "0.000011103079390866484`", "0.000011022436357984662`", 
+     "2.8921524065347437`*^-6"},
+    {"50", "0.00001115806327692235`", "0.00001068153626443873`", 
+     "2.8041781888454505`*^-6"},
+    {"100", "0.000010905137401065745`", "0.00001072552337328326`", 
+     "9.167646601702662`*^-6"},
+    {"500", "0.00001109574820605974`", "0.00001058256526953863`", 
+     "2.675882454715034`*^-6"},
+    {"1000", "0.000011183722423748487`", "0.000010879478254239017`", 
+     "3.236718092484159`*^-6"},
+    {"5000", "0.000011539284886904478`", "0.000011062757874434893`", 
+     "2.9764610318172568`*^-6"},
+    {"10000", "0.000011531953702108577`", "0.000011128738537686811`", 
+     "3.2330525000690002`*^-6"},
+    {"50000", "0.00001240803028657922`", "0.000011773882800696355`", 
+     "3.167071836793767`*^-6"},
+    {"100000", "0.000013038512180081341`", "0.00001282224222814321`", 
+     "3.819547284678038`*^-6"},
+    {"500000", "0.000017345583254240184`", "0.000016117609799408683`", 
+     "6.689706136029372`*^-6"},
+    {"1000000", "0.000022096191010234634`", "0.000021447381152199795`", 
+     "0.000010908802995004408`"},
+    {"5000000", "0.00005768176207425313`", "0.00005444870955557235`", 
+     "0.00004048280250799508`"}
    },
    AutoDelete->False,
    GridBoxAlignment->{"Columns" -> {{Left}}},
@@ -1913,29 +1349,21 @@ Cell[BoxData[
         Directive[FontSize -> 20, Bold]}}, "Rows" -> {{
         Directive[FontSize -> 20, Bold]}}}],
   "Grid"]], "Output",
- CellChangeTimes->{
-  3.719598752310638*^9, {3.7195988824346485`*^9, 3.7195989300440264`*^9}, 
-   3.7195994117715397`*^9, 3.7195999057895412`*^9, 3.7196000386789837`*^9, {
-   3.7196001044640293`*^9, 3.719600130072216*^9}, 3.7196001893409595`*^9, 
-   3.7196004128907433`*^9, 3.7196004615085907`*^9, {3.719600495941467*^9, 
-   3.7196005213963943`*^9}, 3.719600602944832*^9, 3.719600650782196*^9, {
-   3.719600748924259*^9, 3.7196007924345427`*^9}, 3.7196008302193155`*^9, 
-   3.7196008743909693`*^9, 3.7196009532417135`*^9, 3.7196010890090523`*^9, 
-   3.7196427251249275`*^9, 3.7196510017824106`*^9, 3.719676503965027*^9, 
-   3.7196774352853584`*^9, 3.719678003037114*^9}]
+ CellChangeTimes->{3.7198303396828203`*^9, 3.7198306333473625`*^9, 
+  3.719832035290475*^9, 3.719842745420829*^9}]
 }, Open  ]],
 
 Cell[BoxData[{
  RowBox[{
   RowBox[{"Export", "[", 
-   RowBox[{"\"\<TableSerch.gif\>\"", ",", "grid", ",", 
+   RowBox[{"\"\<TableHash.gif\>\"", ",", "grid", ",", 
     RowBox[{"ImageSize", "\[Rule]", 
      RowBox[{"{", 
       RowBox[{"2048", ",", "720"}], "}"}]}]}], "]"}], 
   ";"}], "\[IndentingNewLine]", 
  RowBox[{
   RowBox[{"Export", "[", 
-   RowBox[{"\"\<TableSeach.xls\>\"", ",", "grid", ",", 
+   RowBox[{"\"\<TableHash.xls\>\"", ",", "grid", ",", 
     RowBox[{"ImageSize", "\[Rule]", 
      RowBox[{"{", 
       RowBox[{"2048", ",", "720"}], "}"}]}]}], "]"}], 
@@ -1943,10 +1371,11 @@ Cell[BoxData[{
  CellChangeTimes->{{3.7167141124319644`*^9, 3.7167141580770206`*^9}, {
    3.7167142286741667`*^9, 3.7167142875889273`*^9}, 3.716714849258524*^9, {
    3.7167150760023284`*^9, 3.716715087906725*^9}, {3.7167151787587595`*^9, 
-   3.716715179553131*^9}, {3.7195994773830156`*^9, 3.7195994864164047`*^9}}]
+   3.716715179553131*^9}, {3.7195994773830156`*^9, 3.7195994864164047`*^9}, {
+   3.7198306066580615`*^9, 3.719830622990718*^9}}]
 },
-WindowSize->{1350, 685},
-WindowMargins->{{-8, Automatic}, {Automatic, 0}},
+WindowSize->{1366, 685},
+WindowMargins->{{-8, Automatic}, {Automatic, -8}},
 Magnification:>0.9 Inherited,
 FrontEndVersion->"10.2 for Microsoft Windows (64-bit) (July 7, 2015)",
 StyleDefinitions->"Default.nb"
@@ -1963,21 +1392,19 @@ CellTagsIndex->{}
 (*NotebookFileOutline
 Notebook[{
 Cell[CellGroupData[{
-Cell[580, 22, 13921, 318, 1035, "Input"],
-Cell[14504, 342, 1963, 31, 19, "Message"],
-Cell[16470, 375, 1977, 31, 19, "Message"],
-Cell[18450, 408, 21355, 426, 639, "Output"],
-Cell[39808, 836, 20958, 415, 644, "Output"],
-Cell[60769, 1253, 8786, 176, 644, "Output"],
-Cell[69558, 1431, 8670, 174, 621, "Output"],
-Cell[78231, 1607, 8697, 174, 618, "Output"]
+Cell[580, 22, 12745, 286, 907, "Input"],
+Cell[13328, 310, 654, 13, 19, "Message"],
+Cell[13985, 325, 20119, 403, 632, "Output"],
+Cell[34107, 730, 7802, 162, 618, "Output"],
+Cell[41912, 894, 7790, 162, 618, "Output"],
+Cell[49705, 1058, 7774, 161, 618, "Output"]
 }, Open  ]],
-Cell[86943, 1784, 1496, 33, 193, "Input"],
+Cell[57494, 1222, 1416, 29, 156, "Input"],
 Cell[CellGroupData[{
-Cell[88464, 1821, 2146, 51, 102, "Input"],
-Cell[90613, 1874, 2555, 50, 317, "Output"]
+Cell[58935, 1255, 2371, 53, 139, "Input"],
+Cell[61309, 1310, 2064, 42, 330, "Output"]
 }, Open  ]],
-Cell[93183, 1927, 796, 18, 161, "Input"]
+Cell[63388, 1355, 846, 19, 161, "Input"]
 }
 ]
 *)

@@ -1,3 +1,5 @@
+from .hasher import*
+
 class Train:
     """
     Consist values necessary for identification one train
@@ -17,6 +19,10 @@ class Train:
         self.type = type
         self.d_time = d_time
         self.t_time = t_time
+        # hash of d_time via simple_hash
+        self.hash1 = simple_hash(d_time)
+        # hash of d_time via rs
+        self.hash2 = rs(d_time)
 
     def __eq__(self, other):
         if (self.d_time == other.d_time and self.t_time == other.t_time and self.type == other.type
@@ -50,3 +56,8 @@ class Train:
         :return: dictionary with keys train_number, type, d_time, t_time
         """
         return {'train_number': self.number, 'type': self.type, 'd_time': self.d_time, 't_time': self.t_time}
+
+if __name__ == '__main__':
+    x = Train(100, 'Express', '05-12 22:13', '04:30')
+    print(x.hash1)
+    print(x.hash2)

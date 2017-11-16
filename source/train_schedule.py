@@ -6,6 +6,7 @@ import schedule_maker
 from source.sqlwrap import DatabaseWrap
 from re import fullmatch
 from collections import defaultdict
+from source.hasher import *
 
 """
 Module consist implamentation class Schedule
@@ -37,6 +38,12 @@ class Schedule:
         """
         self.database = DatabaseWrap(database_name)
 
+    def __getattr__(self, item):
+        if item == 'db' and 'db' not in self.__dict__:
+            raise RuntimeError('load_database must be called firstly')
+        if item == 'db_dict' and 'db_dict not'  in self.__dict__:
+            raise RuntimeError('convert_to_dict must be called firstly')
+
     def load_database(self):
         """
         Establish connection with database and load all records in attribute db
@@ -53,10 +60,6 @@ class Schedule:
         :return:  None
         :raise raise RunrimeError if attribute db doesn't exist
         """
-        try:
-            self.db
-        except NameError:
-            raise RuntimeError('load_database must be called firstly')
         if not name:
             self.database.close()
             return None
@@ -72,11 +75,6 @@ class Schedule:
         :return None
         :raise raise RunrimeError if attribute db doesn't exist
         """
-        try:
-            self.db
-        except NameError:
-            raise RuntimeError('load_database must be called firstly')
-
         for i in range(len(self.db)-1):
             train = self.db[i]
             next_train = self.db[i+1]
@@ -101,11 +99,6 @@ class Schedule:
         :return: None
         :raise raise RunrimeError if attribute sb doesn't exist
         """
-        try:
-            self.db
-        except NameError:
-            raise RuntimeError('load_database must be called firstly')
-
         if db == []:
             return []
         if first:
@@ -138,14 +131,10 @@ class Schedule:
         :return: format string of records
         :raise raise RunrimeError if attribute sb doesn't exist
         """
-        try:
-            self.db
-        except NameError:
-            raise RuntimeError('load_database must be called firstly')
-
         for i in self.db:
             print(self._format_record(i))
 
+    @staticmethod
     def _format_record(record):
         """
         Method for getting formatted string from record
@@ -154,9 +143,27 @@ class Schedule:
         """
         return '{type:<10} train № {train_number:04} departs on {d_time} and will be {t_time[0]}{t_time[1]} hours {t_time[3]}{t_time[4]} minutes in travel'.format(**record.form())
 
+    @staticmethod
     def _verify_time_format(time):
+        """
+        Method raise exception while format of time is incorrect
+        :param time: time for check
+        :raise raise RunrimeError format of time is incorrect
+        """
         if not fullmatch('\d{2}-\d{2} \d{2}:\d{2}', time):
             raise RuntimeError('Incorrect Time Format!')
+
+    @staticmethod
+    def _show_result(result):
+        """
+        Method for printing result in stdio
+        :param result: result of search
+        """
+        if not result:
+            print('Not found')
+        else:
+            for train in result:
+                print(train)
 
     def linear_search(self, time, show=False):
         """
@@ -165,25 +172,46 @@ class Schedule:
         :param show: for print formatted results in stdio (if no one fits print 'Not found')
         :return: list of results
         """
-        # raise error if database is not loaded
-        try:
-            self.db
-        except NameError:
-            raise RuntimeError('load_database must be called firstly')
-
         suitable = []
-        # raise error if incorrect time format
-        Schedule._verify_time_format(time)
+        self._verify_time_format(time)
 
         for train in self.db:
             if train.d_time == time:
-                suitable.append(Schedule._format_record(train))
-        # implamentation printing in stdio
-        if show and not suitable:
-            print('Not found')
-        elif show:
-            for train in suitable:
-                print(train)
+                suitable.append(self._format_record(train))
+        if show:
+            self._show_result(suitable)
+        return suitable
+
+    @staticmethod
+    def _binary_search(db, time):
+        """
+        Method for binary search
+        :param time: for search by time in field time
+        :return: list of results
+        """
+        suitable = []
+        first = 0
+        last = len(db)-1
+        while first <= last:
+            mid = (first+last) >> 1
+            if db[mid].d_time == time:
+                break
+            if db[mid].d_time < time:
+                last = mid-1
+            else:
+                first = mid+1
+        else:
+            # if no one found
+            return suitable
+        # searching first suitable train
+        first = mid
+        while first >= 0 and db[first].d_time == time:
+            first -= 1
+        first += 1
+        # create list of suitable train
+        while first < len(db) and db[first].d_time == time:
+            suitable.append(db[first])
+            first += 1
         return suitable
 
     def binary_search(self, time, show=False):
@@ -193,56 +221,18 @@ class Schedule:
         :param show: for print formatted results in stdio (if no one fits print 'Not found')
         :return: list of results
         """
-        try:
-            self.db
-        except NameError:
-            raise RuntimeError('load_database must be called firstly')
-
-        suitable = []
-        Schedule._verify_time_format(time)
-
-        first = 0
-        last = len(self.db)-1
-        while first <= last:
-            mid = (first+last) >> 1
-            if self.db[mid].d_time == time:
-                break
-            if self.db[mid].d_time < time:
-                last = mid-1
-            else:
-                first = mid+1
-        else:
-            # if no one found
-            if show:
-                print('Not found')
-            return suitable
-        # searching first suitable train
-        first = mid
-        while first >= 0 and self.db[first].d_time == time:
-            first -= 1
-        first += 1
-        # create list of suitable train
-        while first < len(self.db) and self.db[first].d_time == time:
-            suitable.append(self.db[first])
-            first += 1
-        # format all records to string
-        suitable = list(map(Schedule._format_record, suitable))
+        self._verify_time_format(time)
+        result = self._binary_search(self.db, time)
+        result = list(map(Schedule._format_record, result))
         if show:
-            for train in suitable:
-                print(train)
-
-        return suitable
+            self._show_result(result)
+        return result
 
     def convert_to_dict(self):
         """
         Method convert_to_dict for add opportunity of search by key
         :return: 
         """
-        try:
-            self.db
-        except NameError:
-            raise RuntimeError('load_database must be called firstly')
-
         self.db_dict = defaultdict(list)
         for train in self.db:
             self.db_dict[train.d_time].append(train)
@@ -254,18 +244,58 @@ class Schedule:
         :param show: for print formatted results in stdio (if no one fits print 'Not found')
         :return: list of results
         """
-        try:
-            self.db_dict
-        except NameError:
-            raise RuntimeError('convert_to_dict must be called firstly')
-
-        Schedule._verify_time_format(time)
+        self._verify_time_format(time)
 
         result = self.db_dict[time]
-        suitable = list(map(Schedule._format_record, result))
-        if show and suitable:
-            for train in suitable:
-                print(train)
-        elif show and not suitable:
-            print('Not found')
+        suitable = list(map(self._format_record, result))
+        if show:
+            self._show_result(suitable)
         return suitable
+
+    def convert_to_simple_hash_table(self):
+        """
+        Method convert array to hash table using simple hash function
+        """
+        self.hash_size = len(self.db)
+        self.simple_hash_table = [[] for _ in range(self.hash_size)]
+        for train in self.db:
+            self.simple_hash_table[train.hash1 % self.hash_size].append(train)
+
+    def convert_to_rs_hash_table(self):
+        """
+        Method convert array to hash table using rs hash function
+        """
+        self.hash_size = len(self.db)
+        self.rs_hash_table = [[] for _ in range(self.hash_size)]
+        for train in self.db:
+            self.rs_hash_table[train.hash2 % self.hash_size].append(train)
+
+    def simple_hash_search(self, time, show=False):
+        """
+        Method for search in to hash table by time hashing via simple hash
+        :param time: for search by time in field time
+        :param show: for print formatted results in stdio (if no one fits print 'Not found')
+        :return: list of results
+        """
+        self._verify_time_format(time)
+        guess = self.simple_hash_table[simple_hash(time) % self.hash_size]
+        result = self._binary_search(guess, time)
+        result = list(map(self._format_record, result))
+        if show:
+            self._show_result(result)
+        return result
+
+    def rs_hash_search(self, time, show=False):
+        """
+        Method for search in to hash table by time hashing via rs hash
+        :param time: for search by time in field time
+        :param show: for print formatted results in stdio (if no one fits print 'Not found')
+        :return: list of results
+        """
+        self._verify_time_format(time)
+        guess = self.rs_hash_table[rs(time) % self.hash_size]
+        result = self._binary_search(guess, time)
+        result = list(map(self._format_record, result))
+        if show:
+            self._show_result(result)
+        return result

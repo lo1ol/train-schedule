@@ -1,6 +1,6 @@
 from time import clock
 
-from source.train_schedule import Schedule
+from train_schedule import Schedule
 
 
 def search_db():
@@ -17,14 +17,8 @@ def search_db():
     print('LOADING DATABASE...')
     schedule = Schedule(database)
     schedule.load_database()
-    print('CREATING DICT...')
-    schedule.convert_to_dict()
-    print('CREATING SIMPLE HASH TABLE...')
-    schedule.convert_to_simple_hash_table()
-    print('CREATING RS HASH TABLE...')
-    schedule.convert_to_rs_hash_table()
     while True:
-        type = input('Type of search(linear/binary(work only on sorted database)/map/simple/rs): ')
+        type = input('Type of search(linear/binary(work only on sorted database)/map): ')
         time = input('Type searching time (format MM-DD HH:MM): ')
         if type == 'linear':
             start = clock()
@@ -35,16 +29,9 @@ def search_db():
             schedule.binary_search(time, show=show)
             print('Time of sorting %s' % (clock() - start))
         elif type == 'map':
+            schedule.convert_to_dict()
             start = clock()
             schedule.map_search(time, show=show)
-            print('Time of sorting %s' % (clock() - start))
-        elif type == 'simple':
-            start = clock()
-            schedule.simple_hash_search(time, show=show)
-            print('Time of sorting %s' % (clock() - start))
-        elif type == 'rs':
-            start = clock()
-            schedule.rs_hash_search(time, show=show)
             print('Time of sorting %s' % (clock() - start))
         else:
             print('Unknown Search!')

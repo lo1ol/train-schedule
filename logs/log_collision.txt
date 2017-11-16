@@ -1,0 +1,52 @@
+Simple  hash has on 5       records = 0     collisions
+RS      hash has on 5       records = 0     collisions
+Default hash has on 5       records = 0     collisions
+--------------------------------------------------
+Simple  hash has on 10      records = 0     collisions
+RS      hash has on 10      records = 0     collisions
+Default hash has on 10      records = 0     collisions
+--------------------------------------------------
+Simple  hash has on 50      records = 0     collisions
+RS      hash has on 50      records = 0     collisions
+Default hash has on 50      records = 0     collisions
+--------------------------------------------------
+Simple  hash has on 100     records = 0     collisions
+RS      hash has on 100     records = 0     collisions
+Default hash has on 100     records = 0     collisions
+--------------------------------------------------
+Simple  hash has on 500     records = 0     collisions
+RS      hash has on 500     records = 0     collisions
+Default hash has on 500     records = 0     collisions
+--------------------------------------------------
+Simple  hash has on 1000    records = 1     collisions
+RS      hash has on 1000    records = 0     collisions
+Default hash has on 1000    records = 0     collisions
+--------------------------------------------------
+Simple  hash has on 5000    records = 6     collisions
+RS      hash has on 5000    records = 0     collisions
+Default hash has on 5000    records = 0     collisions
+--------------------------------------------------
+Simple  hash has on 10000   records = 18    collisions
+RS      hash has on 10000   records = 0     collisions
+Default hash has on 10000   records = 0     collisions
+--------------------------------------------------
+Simple  hash has on 50000   records = 427   collisions
+RS      hash has on 50000   records = 0     collisions
+Default hash has on 50000   records = 0     collisions
+--------------------------------------------------
+Simple  hash has on 100000  records = 1583  collisions
+RS      hash has on 100000  records = 0     collisions
+Default hash has on 100000  records = 1     collisions
+--------------------------------------------------
+Simple  hash has on 500000  records = 19874 collisions
+RS      hash has on 500000  records = 0     collisions
+Default hash has on 500000  records = 9     collisions
+--------------------------------------------------
+Simple  hash has on 1000000 records = 37815 collisions
+RS      hash has on 1000000 records = 0     collisions
+Default hash has on 1000000 records = 24    collisions
+--------------------------------------------------
+Simple  hash has on 5000000 records = 51911 collisions
+RS      hash has on 5000000 records = 0     collisions
+Default hash has on 5000000 records = 27    collisions
+--------------------------------------------------
