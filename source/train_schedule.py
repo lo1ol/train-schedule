@@ -17,20 +17,29 @@ class Schedule:
     """
     Attribute database consist wrapping database with type DatabaseWrap
     :param database_name: is str, consist path to database
-    Class consist 
+    Class consist
     Attribute db: contain all data, before using call method load_database
     Attribute database: contain connection with database
     Special Method __init__,
+    Special Method __getattr__ for raise exceptions if some functions are not called
     Method load_database for establish connection with database and load all records in list
     Method unload_database for sever connection with database and load all records in db to sqlite database
-    Method insert_sort for insert sorting, 
+    Method insert_sort for insert sorting,
     Method quick_sort for quick sorting,
     Method print_schedule for printing formatted schedule
-    Method _format_record for formatting record to string
+    Static method _format_record for formatting record to string
+    Static method _verify_time_format to verify time verify searching
+    Static method _linear_search for implementation linear search
+    Static method _binary_search for implementation binary search
+    Static method _show_result for show result in standard output stream
     Method linear_search for linear search in database
     Method binary_search for binary search in database
     Method convert_to_dict for add opportunity of search by key
     Method map_search for search by key
+    Method  convert_to_simple_hash_table for converting array to hash-table composed via simple hash
+    Method  convert_to_rs_hash_table for converting array to hash-table composed via rs hash
+    Method simple_hash_search to search in hash-table via simple hash
+    Method rs_hash_search to search in hash-table via rs hash
     """
     def __init__(self, database_name):
         """
@@ -168,6 +177,18 @@ class Schedule:
         else:
             for train in result:
                 print(train)
+    @staticmethod
+    def _linear_search(db, time):
+        """
+        Method for linear search
+        :param time: for search by time in field time
+        :return: list of results
+        """
+        suitable = []
+        for train in db:
+            if train.d_time == time:
+                suitable.append(train)
+        return suitable
 
     def linear_search(self, time, show=False):
         """
@@ -176,12 +197,10 @@ class Schedule:
         :param show: for print formatted results in stdio (if no one fits print 'Not found')
         :return: list of results
         """
-        suitable = []
-        self._verify_time_format(time)
 
-        for train in self.db:
-            if train.d_time == time:
-                suitable.append(self._format_record(train))
+        self._verify_time_format(time)
+        suitable = self._linear_search(self.db, time)
+        suitable = list(map(Schedule._format_record, suitable))
         if show:
             self._show_result(suitable)
         return suitable
@@ -235,7 +254,7 @@ class Schedule:
     def convert_to_dict(self):
         """
         Method convert_to_dict for add opportunity of search by key
-        :return: 
+        :return:
         """
         self.db_dict = defaultdict(list)
         for train in self.db:
@@ -283,7 +302,7 @@ class Schedule:
         """
         self._verify_time_format(time)
         guess = self.simple_hash_table[simple_hash(time) % self.hash_size]
-        result = self._binary_search(guess, time)
+        result = self._linear_search(guess, time)
         result = list(map(self._format_record, result))
         if show:
             self._show_result(result)
@@ -298,7 +317,7 @@ class Schedule:
         """
         self._verify_time_format(time)
         guess = self.rs_hash_table[rs(time) % self.hash_size]
-        result = self._binary_search(guess, time)
+        result = self._linear_search(guess, time)
         result = list(map(self._format_record, result))
         if show:
             self._show_result(result)
