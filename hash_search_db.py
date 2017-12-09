@@ -1,9 +1,9 @@
 from time import clock
 
-from train_schedule import Schedule
+from source.train_schedule import Schedule
 
 
-def search_db():
+def hash_search_db():
     """
     search record in database, which path input from stdin
     :return: 0 
@@ -18,7 +18,7 @@ def search_db():
     schedule = Schedule(database)
     schedule.load_database()
     while True:
-        type = input('Type of search(linear/binary(work only on sorted database)/map): ')
+        type = input('Type of search(simple/rs/default): ')
         time = input('Type searching time (format MM-DD HH:MM): ')
         if type == 'linear':
             start = clock()

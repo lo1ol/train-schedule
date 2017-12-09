@@ -41,8 +41,12 @@ class Schedule:
     def __getattr__(self, item):
         if item == 'db' and 'db' not in self.__dict__:
             raise RuntimeError('load_database must be called firstly')
-        if item == 'db_dict' and 'db_dict not'  in self.__dict__:
+        if item == 'db_dict' and 'db_dict' not in self.__dict__:
             raise RuntimeError('convert_to_dict must be called firstly')
+        if item == 'simple_hash_table' and 'simple_hash_table' not in self.__dict__:
+            raise RuntimeError('convert_to_simple_hash_table must be called firstly')
+        if item == 'rs_hash_table' and 'rs_hash_table' not in self.__dict__:
+            raise RuntimeError('convert_to_rs_hash_table must be called firstly')
 
     def load_database(self):
         """
